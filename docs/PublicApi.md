@@ -1,4 +1,4 @@
-# unity_cloud_build.PublicApi
+# unity_cloud_build_api.PublicApi
 
 All URIs are relative to *https://localhost/api/v1*
 
@@ -18,21 +18,21 @@ Retrieves all changelog lines
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure HTTP basic authorization: filetoken
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.PublicApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.PublicApi(unity_cloud_build_api.ApiClient(configuration))
 type_limit = 'type_limit_example' # str | Specific type of message used to limit the results (optional)
 search = 'search_example' # str | Regex string to use to restrict the results via search (optional)
 per_page = 25 # float | Number of audit log records to retrieve (optional) (default to 25)

@@ -1,4 +1,4 @@
-# unity_cloud_build.UsersApi
+# unity_cloud_build_api.UsersApi
 
 All URIs are relative to *https://localhost/api/v1*
 
@@ -21,21 +21,21 @@ Get the currently authenticated user's API key.
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure HTTP basic authorization: filetoken
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.UsersApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.UsersApi(unity_cloud_build_api.ApiClient(configuration))
 
 try:
     # Get current user's API key
@@ -74,21 +74,21 @@ Get the currently authenticated user.
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure HTTP basic authorization: filetoken
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.UsersApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.UsersApi(unity_cloud_build_api.ApiClient(configuration))
 include = 'include_example' # str | Extra fields to include in the response (optional)
 
 try:
@@ -131,21 +131,21 @@ Remove current API key and generate a new one. *WARNING* you will need to use th
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure HTTP basic authorization: filetoken
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.UsersApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.UsersApi(unity_cloud_build_api.ApiClient(configuration))
 
 try:
     # Regenerate API Key
@@ -184,22 +184,22 @@ You can update a few fields on the current user. Each field is optional and you 
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure HTTP basic authorization: filetoken
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.UsersApi(unity_cloud_build.ApiClient(configuration))
-options = unity_cloud_build.Options() # Options |  (optional)
+api_instance = unity_cloud_build_api.UsersApi(unity_cloud_build_api.ApiClient(configuration))
+options = unity_cloud_build_api.Options() # Options |  (optional)
 
 try:
     # Update current user

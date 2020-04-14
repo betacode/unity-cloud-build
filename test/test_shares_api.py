@@ -15,16 +15,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import unity_cloud_build
-from unity_cloud_build.api.shares_api import SharesApi  # noqa: E501
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.api.shares_api import SharesApi  # noqa: E501
+from unity_cloud_build_api.rest import ApiException
 
 
 class TestSharesApi(unittest.TestCase):
     """SharesApi unit test stubs"""
 
     def setUp(self):
-        self.api = unity_cloud_build.api.shares_api.SharesApi()  # noqa: E501
+        self.api = unity_cloud_build_api.api.shares_api.SharesApi()  # noqa: E501
 
     def tearDown(self):
         pass

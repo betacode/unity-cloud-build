@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import unity_cloud_build
-from unity_cloud_build.models.orgsorgidcredentialssigningandroid_keystore import OrgsorgidcredentialssigningandroidKeystore  # noqa: E501
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.models.orgsorgidcredentialssigningandroid_keystore import OrgsorgidcredentialssigningandroidKeystore  # noqa: E501
+from unity_cloud_build_api.rest import ApiException
 
 
 class TestOrgsorgidcredentialssigningandroidKeystore(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestOrgsorgidcredentialssigningandroidKeystore(unittest.TestCase):
     def testOrgsorgidcredentialssigningandroidKeystore(self):
         """Test OrgsorgidcredentialssigningandroidKeystore"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = unity_cloud_build.models.orgsorgidcredentialssigningandroid_keystore.OrgsorgidcredentialssigningandroidKeystore()  # noqa: E501
+        # model = unity_cloud_build_api.models.orgsorgidcredentialssigningandroid_keystore.OrgsorgidcredentialssigningandroidKeystore()  # noqa: E501
         pass
 
 

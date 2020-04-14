@@ -1,4 +1,4 @@
-# unity_cloud_build.UserdevicesApi
+# unity_cloud_build_api.UserdevicesApi
 
 All URIs are relative to *https://localhost/api/v1*
 
@@ -19,22 +19,22 @@ Create iOS device profile for the current user
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure HTTP basic authorization: filetoken
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.UserdevicesApi(unity_cloud_build.ApiClient(configuration))
-options = unity_cloud_build.Options1() # Options1 | 
+api_instance = unity_cloud_build_api.UserdevicesApi(unity_cloud_build_api.ApiClient(configuration))
+options = unity_cloud_build_api.Options1() # Options1 | 
 
 try:
     # Create iOS device profile
@@ -76,21 +76,21 @@ List all iOS device profiles for the current user
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure HTTP basic authorization: filetoken
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.UserdevicesApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.UserdevicesApi(unity_cloud_build_api.ApiClient(configuration))
 
 try:
     # List iOS device profiles

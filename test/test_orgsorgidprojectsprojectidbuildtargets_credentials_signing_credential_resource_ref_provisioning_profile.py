@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import unity_cloud_build
-from unity_cloud_build.models.orgsorgidprojectsprojectidbuildtargets_credentials_signing_credential_resource_ref_provisioning_profile import OrgsorgidprojectsprojectidbuildtargetsCredentialsSigningCredentialResourceRefProvisioningProfile  # noqa: E501
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_credentials_signing_credential_resource_ref_provisioning_profile import OrgsorgidprojectsprojectidbuildtargetsCredentialsSigningCredentialResourceRefProvisioningProfile  # noqa: E501
+from unity_cloud_build_api.rest import ApiException
 
 
 class TestOrgsorgidprojectsprojectidbuildtargetsCredentialsSigningCredentialResourceRefProvisioningProfile(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestOrgsorgidprojectsprojectidbuildtargetsCredentialsSigningCredentialReso
     def testOrgsorgidprojectsprojectidbuildtargetsCredentialsSigningCredentialResourceRefProvisioningProfile(self):
         """Test OrgsorgidprojectsprojectidbuildtargetsCredentialsSigningCredentialResourceRefProvisioningProfile"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = unity_cloud_build.models.orgsorgidprojectsprojectidbuildtargets_credentials_signing_credential_resource_ref_provisioning_profile.OrgsorgidprojectsprojectidbuildtargetsCredentialsSigningCredentialResourceRefProvisioningProfile()  # noqa: E501
+        # model = unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_credentials_signing_credential_resource_ref_provisioning_profile.OrgsorgidprojectsprojectidbuildtargetsCredentialsSigningCredentialResourceRefProvisioningProfile()  # noqa: E501
         pass
 
 

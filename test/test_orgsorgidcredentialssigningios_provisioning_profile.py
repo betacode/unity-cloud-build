@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import unity_cloud_build
-from unity_cloud_build.models.orgsorgidcredentialssigningios_provisioning_profile import OrgsorgidcredentialssigningiosProvisioningProfile  # noqa: E501
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.models.orgsorgidcredentialssigningios_provisioning_profile import OrgsorgidcredentialssigningiosProvisioningProfile  # noqa: E501
+from unity_cloud_build_api.rest import ApiException
 
 
 class TestOrgsorgidcredentialssigningiosProvisioningProfile(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestOrgsorgidcredentialssigningiosProvisioningProfile(unittest.TestCase):
     def testOrgsorgidcredentialssigningiosProvisioningProfile(self):
         """Test OrgsorgidcredentialssigningiosProvisioningProfile"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = unity_cloud_build.models.orgsorgidcredentialssigningios_provisioning_profile.OrgsorgidcredentialssigningiosProvisioningProfile()  # noqa: E501
+        # model = unity_cloud_build_api.models.orgsorgidcredentialssigningios_provisioning_profile.OrgsorgidcredentialssigningiosProvisioningProfile()  # noqa: E501
         pass
 
 

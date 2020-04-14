@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import unity_cloud_build
-from unity_cloud_build.models.orgsorgidprojectsprojectidartifactsdelete_builds import OrgsorgidprojectsprojectidartifactsdeleteBuilds  # noqa: E501
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.models.orgsorgidprojectsprojectidartifactsdelete_builds import OrgsorgidprojectsprojectidartifactsdeleteBuilds  # noqa: E501
+from unity_cloud_build_api.rest import ApiException
 
 
 class TestOrgsorgidprojectsprojectidartifactsdeleteBuilds(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestOrgsorgidprojectsprojectidartifactsdeleteBuilds(unittest.TestCase):
     def testOrgsorgidprojectsprojectidartifactsdeleteBuilds(self):
         """Test OrgsorgidprojectsprojectidartifactsdeleteBuilds"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = unity_cloud_build.models.orgsorgidprojectsprojectidartifactsdelete_builds.OrgsorgidprojectsprojectidartifactsdeleteBuilds()  # noqa: E501
+        # model = unity_cloud_build_api.models.orgsorgidprojectsprojectidartifactsdelete_builds.OrgsorgidprojectsprojectidartifactsdeleteBuilds()  # noqa: E501
         pass
 
 

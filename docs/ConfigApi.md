@@ -1,4 +1,4 @@
-# unity_cloud_build.ConfigApi
+# unity_cloud_build_api.ConfigApi
 
 All URIs are relative to *https://localhost/api/v1*
 
@@ -19,21 +19,21 @@ Get a unity version by value
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure HTTP basic authorization: filetoken
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.ConfigApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.ConfigApi(unity_cloud_build_api.ApiClient(configuration))
 key = 'key_example' # str | Unity Version key (e.g. 2019_2_0f1)
 
 try:
@@ -74,21 +74,21 @@ List all SCM types supporting auto detecting the project Unity version
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure HTTP basic authorization: filetoken
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.ConfigApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.ConfigApi(unity_cloud_build_api.ApiClient(configuration))
 
 try:
     # List all SCM types supporting auto detecting the project Unity version
@@ -125,21 +125,21 @@ List all unity versions
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure HTTP basic authorization: filetoken
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.ConfigApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.ConfigApi(unity_cloud_build_api.ApiClient(configuration))
 
 try:
     # List all unity versions
@@ -176,21 +176,21 @@ List all xcode versions
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure HTTP basic authorization: filetoken
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.ConfigApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.ConfigApi(unity_cloud_build_api.ApiClient(configuration))
 
 try:
     # List all xcode versions

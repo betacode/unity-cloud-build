@@ -1,4 +1,4 @@
-# unity_cloud_build.CredentialsApi
+# unity_cloud_build_api.CredentialsApi
 
 All URIs are relative to *https://localhost/api/v1*
 
@@ -37,20 +37,20 @@ Upload a new android keystore for the project. NOTE: you must be a manager in th
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 label = 'label_example' # str | Label for the uploaded credential
@@ -105,20 +105,20 @@ Upload a new android keystore for an organization. NOTE: you must be a manager i
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 label = 'label_example' # str | Label for the uploaded credential
 file = '/path/to/file.txt' # file | Keystore file
@@ -171,20 +171,20 @@ Upload a new iOS certificate and provisioning profile for the project. NOTE: you
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 label = 'label_example' # str | Label for the uploaded credentials
@@ -237,20 +237,20 @@ Upload a new iOS certificate and provisioning profile for the organization. NOTE
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 label = 'label_example' # str | Label for the uploaded credentials
 file_certificate = '/path/to/file.txt' # file | Certificate file (.p12)
@@ -301,20 +301,20 @@ Delete specific android credentials for a project. NOTE: you must be a manager i
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 credentialid = 'credentialid_example' # str | Credential Identifier
@@ -361,20 +361,20 @@ Delete specific android credentials for an organization. NOTE: you must be a man
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 credentialid = 'credentialid_example' # str | Credential Identifier
 
@@ -419,20 +419,20 @@ Delete specific ios credentials for a project. NOTE: you must be a manager in th
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 credentialid = 'credentialid_example' # str | Credential Identifier
@@ -479,20 +479,20 @@ Delete specific ios credentials. NOTE: you must be a manager in the project's or
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 credentialid = 'credentialid_example' # str | Credential Identifier
 
@@ -537,20 +537,20 @@ Get all credentials available for the project. A user in the projects org will s
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 
@@ -595,20 +595,20 @@ Get all credentials available for the organization. A list of projects using a c
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 
 try:
@@ -651,20 +651,20 @@ Get all credentials available for the project. A user in the projects org will s
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 
@@ -709,20 +709,20 @@ Get all credentials available for the project. A user in the projects org will s
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 
 try:
@@ -765,20 +765,20 @@ Get specific android credential details
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 credentialid = 'credentialid_example' # str | Credential Identifier
@@ -825,20 +825,20 @@ Get specific organization android credential details
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 credentialid = 'credentialid_example' # str | Credential Identifier
 
@@ -883,20 +883,20 @@ Get specific iOS credential details
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 credentialid = 'credentialid_example' # str | Credential Identifier
@@ -943,20 +943,20 @@ Get specific iOS credential details
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 credentialid = 'credentialid_example' # str | Credential Identifier
 
@@ -1001,20 +1001,20 @@ Update an android keystore for the project. NOTE: you must be a manager in the p
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 credentialid = 'credentialid_example' # str | Credential Identifier
@@ -1071,20 +1071,20 @@ Update an android keystore for the organization. NOTE: you must be a manager in 
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 credentialid = 'credentialid_example' # str | Credential Identifier
 label = 'label_example' # str | Label for the uploaded credential (optional)
@@ -1139,20 +1139,20 @@ Update an iOS certificate / provisioning profile for the project. NOTE: you must
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 credentialid = 'credentialid_example' # str | Credential Identifier
@@ -1207,20 +1207,20 @@ Update an iOS certificate / provisioning profile. NOTE: you must be a manager in
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.CredentialsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.CredentialsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 credentialid = 'credentialid_example' # str | Credential Identifier
 label = 'label_example' # str | Label for the updated credentials (optional)

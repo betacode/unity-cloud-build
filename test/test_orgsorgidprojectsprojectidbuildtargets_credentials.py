@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import unity_cloud_build
-from unity_cloud_build.models.orgsorgidprojectsprojectidbuildtargets_credentials import OrgsorgidprojectsprojectidbuildtargetsCredentials  # noqa: E501
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_credentials import OrgsorgidprojectsprojectidbuildtargetsCredentials  # noqa: E501
+from unity_cloud_build_api.rest import ApiException
 
 
 class TestOrgsorgidprojectsprojectidbuildtargetsCredentials(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestOrgsorgidprojectsprojectidbuildtargetsCredentials(unittest.TestCase):
     def testOrgsorgidprojectsprojectidbuildtargetsCredentials(self):
         """Test OrgsorgidprojectsprojectidbuildtargetsCredentials"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = unity_cloud_build.models.orgsorgidprojectsprojectidbuildtargets_credentials.OrgsorgidprojectsprojectidbuildtargetsCredentials()  # noqa: E501
+        # model = unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_credentials.OrgsorgidprojectsprojectidbuildtargetsCredentials()  # noqa: E501
         pass
 
 

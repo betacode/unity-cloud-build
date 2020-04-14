@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import unity_cloud_build
-from unity_cloud_build.models.orgsorgidprojectsprojectidbuildtargets_settings_advanced_unity import OrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnity  # noqa: E501
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_settings_advanced_unity import OrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnity  # noqa: E501
+from unity_cloud_build_api.rest import ApiException
 
 
 class TestOrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnity(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestOrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnity(unittest.T
     def testOrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnity(self):
         """Test OrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnity"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = unity_cloud_build.models.orgsorgidprojectsprojectidbuildtargets_settings_advanced_unity.OrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnity()  # noqa: E501
+        # model = unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_settings_advanced_unity.OrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnity()  # noqa: E501
         pass
 
 

@@ -15,16 +15,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import unity_cloud_build
-from unity_cloud_build.api.orgs_api import OrgsApi  # noqa: E501
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.api.orgs_api import OrgsApi  # noqa: E501
+from unity_cloud_build_api.rest import ApiException
 
 
 class TestOrgsApi(unittest.TestCase):
     """OrgsApi unit test stubs"""
 
     def setUp(self):
-        self.api = unity_cloud_build.api.orgs_api.OrgsApi()  # noqa: E501
+        self.api = unity_cloud_build_api.api.orgs_api.OrgsApi()  # noqa: E501
 
     def tearDown(self):
         pass

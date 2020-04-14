@@ -23,9 +23,9 @@ import tempfile
 import six
 from six.moves.urllib.parse import quote
 
-from unity_cloud_build.configuration import Configuration
-import unity_cloud_build.models
-from unity_cloud_build import rest
+from unity_cloud_build_api.configuration import Configuration
+import unity_cloud_build_api.models
+from unity_cloud_build_api import rest
 
 
 class ApiClient(object):
@@ -266,7 +266,7 @@ class ApiClient(object):
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(unity_cloud_build.models, klass)
+                klass = getattr(unity_cloud_build_api.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)

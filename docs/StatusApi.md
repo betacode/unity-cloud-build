@@ -1,4 +1,4 @@
-# unity_cloud_build.StatusApi
+# unity_cloud_build_api.StatusApi
 
 All URIs are relative to *https://localhost/api/v1*
 
@@ -16,21 +16,21 @@ Get Cloud Build Status
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure HTTP basic authorization: filetoken
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.StatusApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.StatusApi(unity_cloud_build_api.ApiClient(configuration))
 
 try:
     # Get Cloud Build Status

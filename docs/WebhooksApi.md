@@ -1,4 +1,4 @@
-# unity_cloud_build.WebhooksApi
+# unity_cloud_build_api.WebhooksApi
 
 All URIs are relative to *https://localhost/api/v1*
 
@@ -29,22 +29,22 @@ Adds a new organization level hook. An organization level hook is triggered by e
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.WebhooksApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
-options = unity_cloud_build.Options2() # Options2 |  (optional)
+options = unity_cloud_build_api.Options2() # Options2 |  (optional)
 
 try:
     # Add hook for organization
@@ -87,23 +87,23 @@ Adds a new project level hook. A project level hook is only triggered by events 
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.WebhooksApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
-options = unity_cloud_build.Options4() # Options4 |  (optional)
+options = unity_cloud_build_api.Options4() # Options4 |  (optional)
 
 try:
     # Add hook for project
@@ -145,20 +145,20 @@ Delete organization hook
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.WebhooksApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 id = 'id_example' # str | Hook record identifier
 
@@ -201,20 +201,20 @@ Delete project hook
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.WebhooksApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 id = 'id_example' # str | Hook record identifier
@@ -261,20 +261,20 @@ Get details of a hook by id
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.WebhooksApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 id = 'id_example' # str | Hook record identifier
 
@@ -319,20 +319,20 @@ Get details of a hook by id
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.WebhooksApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 id = 'id_example' # str | Hook record identifier
@@ -379,20 +379,20 @@ List all hooks configured for the specified organization
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.WebhooksApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 
 try:
@@ -435,20 +435,20 @@ List all hooks configured for the specified project
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.WebhooksApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 
@@ -493,20 +493,20 @@ Send a ping event to an org hook.
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.WebhooksApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 id = 'id_example' # str | Hook record identifier
 
@@ -551,20 +551,20 @@ Send a ping event to a project hook.
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.WebhooksApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 id = 'id_example' # str | Hook record identifier
@@ -611,23 +611,23 @@ Update a new hook. NOTE: you must be a manager in the organization to update hoo
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.WebhooksApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 id = 'id_example' # str | Hook record identifier
-options = unity_cloud_build.Options3() # Options3 |  (optional)
+options = unity_cloud_build_api.Options3() # Options3 |  (optional)
 
 try:
     # Update hook for organization
@@ -671,24 +671,24 @@ Update an existing hook. NOTE: you must be a manager of the project to update ho
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.WebhooksApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 id = 'id_example' # str | Hook record identifier
-options = unity_cloud_build.Options5() # Options5 |  (optional)
+options = unity_cloud_build_api.Options5() # Options5 |  (optional)
 
 try:
     # Update hook for project

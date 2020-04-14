@@ -1,4 +1,4 @@
-# unity_cloud_build.OrgsApi
+# unity_cloud_build_api.OrgsApi
 
 All URIs are relative to *https://localhost/api/v1*
 
@@ -20,20 +20,20 @@ Get the billing plan for the specified organization
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.OrgsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.OrgsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 
 try:
@@ -76,20 +76,20 @@ Get the ssh public key for the specified org
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.OrgsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.OrgsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 
 try:
@@ -132,20 +132,20 @@ Regenerate the ssh key for the specified org *WARNING* this is a destructive ope
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.OrgsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.OrgsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 
 try:

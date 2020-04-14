@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import unity_cloud_build
-from unity_cloud_build.models.orgsorgidprojectsprojectidauditlog_lines import OrgsorgidprojectsprojectidauditlogLines  # noqa: E501
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.models.orgsorgidprojectsprojectidauditlog_lines import OrgsorgidprojectsprojectidauditlogLines  # noqa: E501
+from unity_cloud_build_api.rest import ApiException
 
 
 class TestOrgsorgidprojectsprojectidauditlogLines(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestOrgsorgidprojectsprojectidauditlogLines(unittest.TestCase):
     def testOrgsorgidprojectsprojectidauditlogLines(self):
         """Test OrgsorgidprojectsprojectidauditlogLines"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = unity_cloud_build.models.orgsorgidprojectsprojectidauditlog_lines.OrgsorgidprojectsprojectidauditlogLines()  # noqa: E501
+        # model = unity_cloud_build_api.models.orgsorgidprojectsprojectidauditlog_lines.OrgsorgidprojectsprojectidauditlogLines()  # noqa: E501
         pass
 
 

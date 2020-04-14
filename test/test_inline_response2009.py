@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import unity_cloud_build
-from unity_cloud_build.models.inline_response2009 import InlineResponse2009  # noqa: E501
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.models.inline_response2009 import InlineResponse2009  # noqa: E501
+from unity_cloud_build_api.rest import ApiException
 
 
 class TestInlineResponse2009(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestInlineResponse2009(unittest.TestCase):
     def testInlineResponse2009(self):
         """Test InlineResponse2009"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = unity_cloud_build.models.inline_response2009.InlineResponse2009()  # noqa: E501
+        # model = unity_cloud_build_api.models.inline_response2009.InlineResponse2009()  # noqa: E501
         pass
 
 

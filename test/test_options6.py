@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import unity_cloud_build
-from unity_cloud_build.models.options6 import Options6  # noqa: E501
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.models.options6 import Options6  # noqa: E501
+from unity_cloud_build_api.rest import ApiException
 
 
 class TestOptions6(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestOptions6(unittest.TestCase):
     def testOptions6(self):
         """Test Options6"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = unity_cloud_build.models.options6.Options6()  # noqa: E501
+        # model = unity_cloud_build_api.models.options6.Options6()  # noqa: E501
         pass
 
 

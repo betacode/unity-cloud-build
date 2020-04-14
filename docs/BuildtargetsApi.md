@@ -1,4 +1,4 @@
-# unity_cloud_build.BuildtargetsApi
+# unity_cloud_build_api.BuildtargetsApi
 
 All URIs are relative to *https://localhost/api/v1*
 
@@ -24,23 +24,23 @@ Create build target for a project
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.BuildtargetsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.BuildtargetsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
-options = unity_cloud_build.Options6() # Options6 | Options for build target create/update
+options = unity_cloud_build_api.Options6() # Options6 | Options for build target create/update
 
 try:
     # Create build target for a project
@@ -82,20 +82,20 @@ Delete build target
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.BuildtargetsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.BuildtargetsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
@@ -140,20 +140,20 @@ Get a build target
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.BuildtargetsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.BuildtargetsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
@@ -200,20 +200,20 @@ Gets all configured build targets for a project, regardless of whether they are 
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.BuildtargetsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.BuildtargetsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 include = 'include_example' # str | Extra fields to include in the response (optional)
@@ -262,20 +262,20 @@ Gets all configured build targets for an org, regardless of whether they are ena
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.BuildtargetsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.BuildtargetsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 include = 'include_example' # str | Extra fields to include in the response (optional)
 include_last_success = false # bool | Include last successful build (optional) (default to false)
@@ -322,20 +322,20 @@ Get all configured environment variables for a given build target
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.BuildtargetsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.BuildtargetsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
@@ -382,20 +382,20 @@ Get statistics for the specified build target
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.BuildtargetsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.BuildtargetsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
@@ -448,20 +448,20 @@ Set all configured environment variables for a given build target
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.BuildtargetsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.BuildtargetsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
@@ -508,24 +508,24 @@ Update build target details
 ```python
 from __future__ import print_function
 import time
-import unity_cloud_build
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: apikey
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure OAuth2 access token for authorization: permissions
-configuration = unity_cloud_build.Configuration()
+configuration = unity_cloud_build_api.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = unity_cloud_build.BuildtargetsApi(unity_cloud_build.ApiClient(configuration))
+api_instance = unity_cloud_build_api.BuildtargetsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
-options = unity_cloud_build.Options7() # Options7 | Options for build target create/update
+options = unity_cloud_build_api.Options7() # Options7 | Options for build target create/update
 
 try:
     # Update build target details

@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import unity_cloud_build
-from unity_cloud_build.models.orgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumbersteps_messages import OrgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumberstepsMessages  # noqa: E501
-from unity_cloud_build.rest import ApiException
+import unity_cloud_build_api
+from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumbersteps_messages import OrgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumberstepsMessages  # noqa: E501
+from unity_cloud_build_api.rest import ApiException
 
 
 class TestOrgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumberstepsMessages(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestOrgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumberstepsMe
     def testOrgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumberstepsMessages(self):
         """Test OrgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumberstepsMessages"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = unity_cloud_build.models.orgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumbersteps_messages.OrgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumberstepsMessages()  # noqa: E501
+        # model = unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumbersteps_messages.OrgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumberstepsMessages()  # noqa: E501
         pass
 
 
