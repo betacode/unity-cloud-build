@@ -1111,7 +1111,7 @@ class BuildsApi(object):
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
         :param str include: Extra fields to include in the response
-        :return: object
+        :return: OrgsorgidprojectsprojectidbuildtargetsBuilds
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1137,7 +1137,7 @@ class BuildsApi(object):
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
         :param str include: Extra fields to include in the response
-        :return: object
+        :return: OrgsorgidprojectsprojectidbuildtargetsBuilds
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1215,7 +1215,7 @@ class BuildsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type='OrgsorgidprojectsprojectidbuildtargetsBuilds',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2269,7 +2269,7 @@ class BuildsApi(object):
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
         :param Options10 options: Options for build update (required)
-        :return: object
+        :return: OrgsorgidprojectsprojectidbuildtargetsBuilds
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2294,7 +2294,7 @@ class BuildsApi(object):
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
         :param Options10 options: Options for build update (required)
-        :return: object
+        :return: OrgsorgidprojectsprojectidbuildtargetsBuilds
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2376,7 +2376,7 @@ class BuildsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type='OrgsorgidprojectsprojectidbuildtargetsBuilds',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
