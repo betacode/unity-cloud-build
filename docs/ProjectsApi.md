@@ -1,11 +1,12 @@
 # unity_cloud_build_api.ProjectsApi
 
-All URIs are relative to *https://localhost/api/v1*
+All URIs are relative to */api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_project**](ProjectsApi.md#add_project) | **POST** /orgs/{orgid}/projects | Create project
 [**archive_project**](ProjectsApi.md#archive_project) | **DELETE** /orgs/{orgid}/projects/{projectid} | Archive project
+[**billing_plan**](ProjectsApi.md#billing_plan) | **GET** /orgs/{orgid}/projects/{projectid}/billingplan_alpha | Get billing plan
 [**get_audit_log_for_project**](ProjectsApi.md#get_audit_log_for_project) | **GET** /orgs/{orgid}/projects/{projectid}/auditlog | Get audit log
 [**get_billing_plans_for_project**](ProjectsApi.md#get_billing_plans_for_project) | **GET** /orgs/{orgid}/projects/{projectid}/billingplan | Get billing plan
 [**get_env_variables_for_project**](ProjectsApi.md#get_env_variables_for_project) | **GET** /orgs/{orgid}/projects/{projectid}/envvars | Get environment variables
@@ -18,9 +19,8 @@ Method | HTTP request | Description
 [**set_env_variables_for_project**](ProjectsApi.md#set_env_variables_for_project) | **PUT** /orgs/{orgid}/projects/{projectid}/envvars | Set environment variables
 [**update_project**](ProjectsApi.md#update_project) | **PUT** /orgs/{orgid}/projects/{projectid} | Update project details
 
-
 # **add_project**
-> object add_project(orgid, options)
+> object add_project(body, orgid)
 
 Create project
 
@@ -33,7 +33,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -44,12 +43,12 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = unity_cloud_build_api.ProjectsApi(unity_cloud_build_api.ApiClient(configuration))
+body = unity_cloud_build_api.OrgidProjectsBody() # OrgidProjectsBody | Options for project create/update
 orgid = 'orgid_example' # str | Organization identifier
-options = NULL # object | Options for project create/update
 
 try:
     # Create project
-    api_response = api_instance.add_project(orgid, options)
+    api_response = api_instance.add_project(body, orgid)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ProjectsApi->add_project: %s\n" % e)
@@ -59,8 +58,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**OrgidProjectsBody**](OrgidProjectsBody.md)| Options for project create/update | 
  **orgid** | **str**| Organization identifier | 
- **options** | [**object**](.md)| Options for project create/update | 
 
 ### Return type
 
@@ -91,7 +90,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -130,7 +128,64 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/plain, text/html, text/csv
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **billing_plan**
+> object billing_plan(orgid, projectid)
+
+Get billing plan
+
+Get the billing plan for the specified organization (but pull from project)
+
+### Example
+```python
+from __future__ import print_function
+import time
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
+from pprint import pprint
+# Configure HTTP basic authorization: apikey
+configuration = unity_cloud_build_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure OAuth2 access token for authorization: permissions
+configuration = unity_cloud_build_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = unity_cloud_build_api.ProjectsApi(unity_cloud_build_api.ApiClient(configuration))
+orgid = 'orgid_example' # str | Organization identifier
+projectid = 'projectid_example' # str | Project identifier
+
+try:
+    # Get billing plan
+    api_response = api_instance.billing_plan(orgid, projectid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ProjectsApi->billing_plan: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orgid** | **str**| Organization identifier | 
+ **projectid** | **str**| Project identifier | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[apikey](../README.md#apikey), [permissions](../README.md#permissions)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -149,7 +204,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -162,8 +216,8 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = unity_cloud_build_api.ProjectsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
-per_page = 25 # float | Number of audit log records to retrieve (optional) (default to 25)
-page = 1 # float | Skip to page number, based on per_page value (optional) (default to 1)
+per_page = 25.0 # float | Number of audit log records to retrieve (optional) (default to 25.0)
+page = 1.0 # float | Skip to page number, based on per_page value (optional) (default to 1.0)
 
 try:
     # Get audit log
@@ -179,8 +233,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orgid** | **str**| Organization identifier | 
  **projectid** | **str**| Project identifier | 
- **per_page** | **float**| Number of audit log records to retrieve | [optional] [default to 25]
- **page** | **float**| Skip to page number, based on per_page value | [optional] [default to 1]
+ **per_page** | **float**| Number of audit log records to retrieve | [optional] [default to 25.0]
+ **page** | **float**| Skip to page number, based on per_page value | [optional] [default to 1.0]
 
 ### Return type
 
@@ -192,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -211,7 +265,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -250,7 +303,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -269,7 +322,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -308,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -325,7 +377,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -366,7 +417,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -385,7 +436,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -422,7 +472,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -441,7 +491,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -480,7 +529,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -499,7 +548,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -538,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -557,7 +605,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -596,8 +643,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, text/plain, text/html, text/csv
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/plain, text/html, text/csv, application/json-default, application/json-include-settings
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -615,12 +662,10 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure HTTP basic authorization: filetoken
+configuration.password = 'YOUR_PASSWORD'# Configure HTTP basic authorization: filetoken
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -653,13 +698,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_env_variables_for_project**
-> dict(str, str) set_env_variables_for_project(orgid, projectid, envvars)
+> dict(str, str) set_env_variables_for_project(body, orgid, projectid)
 
 Set environment variables
 
@@ -672,7 +717,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -683,13 +727,13 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = unity_cloud_build_api.ProjectsApi(unity_cloud_build_api.ApiClient(configuration))
+body = NULL # dict(str, str) | Environment variables
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
-envvars = NULL # object | Environment variables
 
 try:
     # Set environment variables
-    api_response = api_instance.set_env_variables_for_project(orgid, projectid, envvars)
+    api_response = api_instance.set_env_variables_for_project(body, orgid, projectid)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ProjectsApi->set_env_variables_for_project: %s\n" % e)
@@ -699,9 +743,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**dict(str, str)**](dict.md)| Environment variables | 
  **orgid** | **str**| Organization identifier | 
  **projectid** | **str**| Project identifier | 
- **envvars** | **object**| Environment variables | 
 
 ### Return type
 
@@ -719,7 +763,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_project**
-> object update_project(orgid, projectid, options)
+> object update_project(body, orgid, projectid)
 
 Update project details
 
@@ -730,7 +774,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -741,13 +784,13 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = unity_cloud_build_api.ProjectsApi(unity_cloud_build_api.ApiClient(configuration))
+body = unity_cloud_build_api.ProjectsProjectidBody() # ProjectsProjectidBody | Options for project create/update
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
-options = NULL # object | Options for project create/update
 
 try:
     # Update project details
-    api_response = api_instance.update_project(orgid, projectid, options)
+    api_response = api_instance.update_project(body, orgid, projectid)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ProjectsApi->update_project: %s\n" % e)
@@ -757,9 +800,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**ProjectsProjectidBody**](ProjectsProjectidBody.md)| Options for project create/update | 
  **orgid** | **str**| Organization identifier | 
  **projectid** | **str**| Project identifier | 
- **options** | [**object**](.md)| Options for project create/update | 
 
 ### Return type
 

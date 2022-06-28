@@ -1,6 +1,6 @@
 # unity_cloud_build_api.BuildtargetsApi
 
-All URIs are relative to *https://localhost/api/v1*
+All URIs are relative to */api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,9 +14,8 @@ Method | HTTP request | Description
 [**set_env_variables_for_build_target**](BuildtargetsApi.md#set_env_variables_for_build_target) | **PUT** /orgs/{orgid}/projects/{projectid}/buildtargets/{buildtargetid}/envvars | Set environment variables
 [**update_build_target**](BuildtargetsApi.md#update_build_target) | **PUT** /orgs/{orgid}/projects/{projectid}/buildtargets/{buildtargetid} | Update build target details
 
-
 # **add_build_target**
-> object add_build_target(orgid, projectid, options)
+> object add_build_target(body, orgid, projectid)
 
 Create build target for a project
 
@@ -27,7 +26,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -38,13 +36,13 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = unity_cloud_build_api.BuildtargetsApi(unity_cloud_build_api.ApiClient(configuration))
+body = unity_cloud_build_api.ProjectidBuildtargetsBody() # ProjectidBuildtargetsBody | Options for build target create/update
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
-options = unity_cloud_build_api.Options6() # Options6 | Options for build target create/update
 
 try:
     # Create build target for a project
-    api_response = api_instance.add_build_target(orgid, projectid, options)
+    api_response = api_instance.add_build_target(body, orgid, projectid)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BuildtargetsApi->add_build_target: %s\n" % e)
@@ -54,9 +52,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**ProjectidBuildtargetsBody**](ProjectidBuildtargetsBody.md)| Options for build target create/update | 
  **orgid** | **str**| Organization identifier | 
  **projectid** | **str**| Project identifier | 
- **options** | [**Options6**](Options6.md)| Options for build target create/update | 
 
 ### Return type
 
@@ -85,7 +83,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -126,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -143,7 +140,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -184,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -203,7 +199,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -246,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -265,7 +260,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -306,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -325,7 +319,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -366,7 +359,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -385,7 +378,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -399,9 +391,9 @@ api_instance = unity_cloud_build_api.BuildtargetsApi(unity_cloud_build_api.ApiCl
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
-build_status = '' # str | Query for only builds of a specific status (optional) (default to )
+build_status = 'build_status_example' # str | Query for only builds of a specific status (optional)
 clean_build = true # bool | Query for builds that have either been built clean or using caches (optional)
-limit = 8.14 # float | Get stats for last limit builds (optional)
+limit = 1.2 # float | Get stats for last limit builds (optional)
 
 try:
     # Get build target statistics
@@ -418,7 +410,7 @@ Name | Type | Description  | Notes
  **orgid** | **str**| Organization identifier | 
  **projectid** | **str**| Project identifier | 
  **buildtargetid** | **str**| unique id auto-generated from the build target name | 
- **build_status** | **str**| Query for only builds of a specific status | [optional] [default to ]
+ **build_status** | **str**| Query for only builds of a specific status | [optional] 
  **clean_build** | **bool**| Query for builds that have either been built clean or using caches | [optional] 
  **limit** | **float**| Get stats for last limit builds | [optional] 
 
@@ -432,13 +424,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_env_variables_for_build_target**
-> dict(str, str) set_env_variables_for_build_target(orgid, projectid, buildtargetid, envvars)
+> dict(str, str) set_env_variables_for_build_target(body, orgid, projectid, buildtargetid)
 
 Set environment variables
 
@@ -451,7 +443,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -462,14 +453,14 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = unity_cloud_build_api.BuildtargetsApi(unity_cloud_build_api.ApiClient(configuration))
+body = NULL # dict(str, str) | Environment variables
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
-envvars = NULL # object | Environment variables
 
 try:
     # Set environment variables
-    api_response = api_instance.set_env_variables_for_build_target(orgid, projectid, buildtargetid, envvars)
+    api_response = api_instance.set_env_variables_for_build_target(body, orgid, projectid, buildtargetid)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BuildtargetsApi->set_env_variables_for_build_target: %s\n" % e)
@@ -479,10 +470,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**dict(str, str)**](dict.md)| Environment variables | 
  **orgid** | **str**| Organization identifier | 
  **projectid** | **str**| Project identifier | 
  **buildtargetid** | **str**| unique id auto-generated from the build target name | 
- **envvars** | **object**| Environment variables | 
 
 ### Return type
 
@@ -500,7 +491,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_build_target**
-> object update_build_target(orgid, projectid, buildtargetid, options)
+> object update_build_target(body, orgid, projectid, buildtargetid)
 
 Update build target details
 
@@ -511,7 +502,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -522,14 +512,14 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = unity_cloud_build_api.BuildtargetsApi(unity_cloud_build_api.ApiClient(configuration))
+body = unity_cloud_build_api.BuildtargetsBuildtargetidBody() # BuildtargetsBuildtargetidBody | Options for build target create/update
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
-options = unity_cloud_build_api.Options7() # Options7 | Options for build target create/update
 
 try:
     # Update build target details
-    api_response = api_instance.update_build_target(orgid, projectid, buildtargetid, options)
+    api_response = api_instance.update_build_target(body, orgid, projectid, buildtargetid)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BuildtargetsApi->update_build_target: %s\n" % e)
@@ -539,10 +529,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**BuildtargetsBuildtargetidBody**](BuildtargetsBuildtargetidBody.md)| Options for build target create/update | 
  **orgid** | **str**| Organization identifier | 
  **projectid** | **str**| Project identifier | 
  **buildtargetid** | **str**| unique id auto-generated from the build target name | 
- **options** | [**Options7**](Options7.md)| Options for build target create/update | 
 
 ### Return type
 

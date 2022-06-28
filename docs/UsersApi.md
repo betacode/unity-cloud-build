@@ -1,14 +1,13 @@
 # unity_cloud_build_api.UsersApi
 
-All URIs are relative to *https://localhost/api/v1*
+All URIs are relative to */api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_user_api_key**](UsersApi.md#get_user_api_key) | **GET** /users/me/apikey | Get current user&#39;s API key
+[**get_user_api_key**](UsersApi.md#get_user_api_key) | **GET** /users/me/apikey | Get current user&#x27;s API key
 [**get_user_self**](UsersApi.md#get_user_self) | **GET** /users/me | Get current user
 [**regen_api_key**](UsersApi.md#regen_api_key) | **POST** /users/me/apikey | Regenerate API Key
 [**update_user_self**](UsersApi.md#update_user_self) | **PUT** /users/me | Update current user
-
 
 # **get_user_api_key**
 > object get_user_api_key()
@@ -24,12 +23,10 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure HTTP basic authorization: filetoken
+configuration.password = 'YOUR_PASSWORD'# Configure HTTP basic authorization: filetoken
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -58,7 +55,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -77,12 +74,10 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure HTTP basic authorization: filetoken
+configuration.password = 'YOUR_PASSWORD'# Configure HTTP basic authorization: filetoken
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -115,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -134,12 +129,10 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure HTTP basic authorization: filetoken
+configuration.password = 'YOUR_PASSWORD'# Configure HTTP basic authorization: filetoken
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -168,13 +161,13 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user_self**
-> object update_user_self(options=options)
+> object update_user_self(body=body)
 
 Update current user
 
@@ -187,23 +180,21 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure HTTP basic authorization: filetoken
+configuration.password = 'YOUR_PASSWORD'# Configure HTTP basic authorization: filetoken
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = unity_cloud_build_api.UsersApi(unity_cloud_build_api.ApiClient(configuration))
-options = unity_cloud_build_api.Options() # Options |  (optional)
+body = unity_cloud_build_api.UsersMeBody() # UsersMeBody |  (optional)
 
 try:
     # Update current user
-    api_response = api_instance.update_user_self(options=options)
+    api_response = api_instance.update_user_self(body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->update_user_self: %s\n" % e)
@@ -213,7 +204,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **options** | [**Options**](Options.md)|  | [optional] 
+ **body** | [**UsersMeBody**](UsersMeBody.md)|  | [optional] 
 
 ### Return type
 

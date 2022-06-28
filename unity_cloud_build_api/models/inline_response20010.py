@@ -3,26 +3,23 @@
 """
     Unity Cloud Build
 
-    This API is intended to be used in conjunction with the Unity Cloud Build service. A tool for building your Unity projects in the Cloud.  See https://developer.cloud.unity3d.com for more information.  ## Making requests This website is built to allow requests to be made against the API. If you are currently logged into Cloud Build you should be able to make requests without entering an API key.   You can find your API key in the Unity Cloud Services portal by clicking on 'Cloud Build Preferences' in the sidebar. Copy the API Key and paste it into the upper left corner of this website. It will be used in all subsequent requests.  ## Clients The Unity Cloud Build API is based upon Swagger. Client libraries to integrate with your projects can easily be generated with the [Swagger Code Generator](https://github.com/swagger-api/swagger-codegen).  The JSON schema required to generate a client for this API version is located here:  ``` [API_URL][BASE_PATH]/api.json ```  ## Authorization The Unity Cloud Build API requires an access token from your Unity Cloud Build account, which can be found at https://build.cloud.unity3d.com/login/me  To authenticate requests, include a Basic Authentication header with your API key as the value. e.g.  ``` Authorization: Basic [YOUR API KEY] ```  ## Pagination Paged results will take two parameters. A page number that is calculated based upon the per_page amount. For instance if there are 40 results and you specify page 2 with per_page set to 10 you will receive records 11-20.  Paged results will also return a Content-Range header. For the example above the content range header would look like this:  ``` Content-Range: items 11-20/40 ```  ## Versioning The API version is indicated in the request URL. Upgrading to a newer API version can be done by changing the path.  The API will receive a new version in the following cases:    * removal of a path or request type   * addition of a required field   * removal of a required field  The following changes are considered backwards compatible and will not trigger a new API version:    * addition of an endpoint or request type   * addition of an optional field   * removal of an optional field   * changes to the format of ids  ## Rate Limiting Requests against the Cloud Build API are limited to a rate of 100 per minute. To preserve the quality of service throughout Cloud Build, additional rate limits may apply to some actions. For example, polling aggressively instead of using webhooks or making API calls with a high concurrency may result in rate limiting.  It is not intended for these rate limits to interfere with any legitimate use of the API. Please contact support at <cloudbuild@unity3d.com> if your use is affected by this rate limit.  You can check the returned HTTP headers for any API request to see your current rate limit status.   * __X-RateLimit-Limit:__ maximum number of requests per minute   * __X-RateLimit-Remaining:__ remaining number of requests in the current window   * __X-RateLimit-Reset:__ time at which the current window will reset (UTC epoch seconds)  Once you go over the rate limit you will receive an error response: ``` HTTP Status: 429 {   \"error\": \"Rate limit exceeded, retry in XX seconds\" } ```   # noqa: E501
+    This API is intended to be used in conjunction with the Unity Cloud Build service. A tool for building your Unity projects in the Cloud.  See https://developer.cloud.unity3d.com for more information.  ## Making requests This website is built to allow requests to be made against the API. If you are currently logged into Cloud Build you should be able to make requests without entering an API key.   You can find your API key in the Unity Cloud Services portal by clicking on 'Cloud Build Preferences' in the sidebar. Copy the API Key and paste it into the upper left corner of this website. It will be used in all subsequent requests.  ## Clients The Unity Cloud Build API is based upon Swagger. Client libraries to integrate with your projects can easily be generated with the [Swagger Code Generator](https://github.com/swagger-api/swagger-codegen).  The JSON schema required to generate a client for this API version is located here:  ``` [API_URL][BASE_PATH]/api.json ```  ## Authorization The Unity Cloud Build API requires an access token from your Unity Cloud Build account, which can be found at https://build.cloud.unity3d.com/login/me  To authenticate requests, include a Basic Authentication header with your API key as the value. e.g.  ``` Authorization: Basic [YOUR API KEY] ```  ## Pagination Paged results will take two parameters. A page number that is calculated based upon the per_page amount. For instance if there are 40 results and you specify page 2 with per_page set to 10 you will receive records 11-20.  Paged results will also return a Content-Range header. For the example above the content range header would look like this:  ``` Content-Range: items 11-20/40 ```  ## Versioning The API version is indicated in the request URL. Upgrading to a newer API version can be done by changing the path.  The API will receive a new version in the following cases:    * removal of a path or request type   * addition of a required field   * removal of a required field  The following changes are considered backwards compatible and will not trigger a new API version:    * addition of an endpoint or request type   * addition of an optional field   * removal of an optional field   * changes to the format of ids  ## Identifiers It should not be assumed that any of the identifiers used in paths will be a perfect match for your user-entered information. If you see unexpected 403s or 404s from API calls then check your identifiers match the ones used by the API. In particular, `projectId` does NOT typically change when the project is renamed and in fact may not be a direct match for the project name even at initial creation time.  To avoid confusion we recommend that instead of using the human-readable autogenerated orgId and projectId available from the API you should instead use:   * org foreign key for `orgId` (available from project APIs as `orgFk` and org APIs as `coreForeignKey`)   * `guid` for `projectId`  All links generated by the API and the Dashboard should follow this format already, making it easy to figure out the correct parameters by making a comparison.  ## Rate Limiting Requests against the Cloud Build API are limited to a rate of 100 per minute. To preserve the quality of service throughout Cloud Build, additional rate limits may apply to some actions. For example, polling aggressively instead of using webhooks or making API calls with a high concurrency may result in rate limiting.  It is not intended for these rate limits to interfere with any legitimate use of the API. Please contact support at <cloudbuild@unity3d.com> if your use is affected by this rate limit.  You can check the returned HTTP headers for any API request to see your current rate limit status.   * __X-RateLimit-Limit:__ maximum number of requests per minute   * __X-RateLimit-Remaining:__ remaining number of requests in the current window   * __X-RateLimit-Reset:__ time at which the current window will reset (UTC epoch seconds)  Once you go over the rate limit you will receive an error response: ``` HTTP Status: 429 {   \"error\": \"Rate limit exceeded, retry in XX seconds\" } ```   # noqa: E501
 
     OpenAPI spec version: 1.0.0
     
     Generated by: https://github.com/swagger-api/swagger-codegen.git
 """
 
-
 import pprint
 import re  # noqa: F401
 
 import six
-
 
 class InlineResponse20010(object):
     """NOTE: This class is auto generated by the swagger code generator program.
 
     Do not edit the class manually.
     """
-
     """
     Attributes:
       swagger_types (dict): The key is attribute name
@@ -31,122 +28,254 @@ class InlineResponse20010(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'depth': 'int',
-        'duration': 'float',
-        'name': 'str',
-        'messages': 'list[OrgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumberstepsMessages]'
+        'platform': 'str',
+        'label': 'str',
+        'credentialid': 'str',
+        'created': 'str',
+        'last_mod': 'str',
+        'certificate': 'OrgsorgidcredentialssigningosxCertificate',
+        'provider_name': 'str',
+        'apple_id_username': 'str',
+        'links': 'object'
     }
 
     attribute_map = {
-        'depth': 'depth',
-        'duration': 'duration',
-        'name': 'name',
-        'messages': 'messages'
+        'platform': 'platform',
+        'label': 'label',
+        'credentialid': 'credentialid',
+        'created': 'created',
+        'last_mod': 'lastMod',
+        'certificate': 'certificate',
+        'provider_name': 'providerName',
+        'apple_id_username': 'appleIdUsername',
+        'links': 'links'
     }
 
-    def __init__(self, depth=None, duration=None, name=None, messages=None):  # noqa: E501
+    def __init__(self, platform=None, label=None, credentialid=None, created=None, last_mod=None, certificate=None, provider_name=None, apple_id_username=None, links=None):  # noqa: E501
         """InlineResponse20010 - a model defined in Swagger"""  # noqa: E501
-
-        self._depth = None
-        self._duration = None
-        self._name = None
-        self._messages = None
+        self._platform = None
+        self._label = None
+        self._credentialid = None
+        self._created = None
+        self._last_mod = None
+        self._certificate = None
+        self._provider_name = None
+        self._apple_id_username = None
+        self._links = None
         self.discriminator = None
-
-        if depth is not None:
-            self.depth = depth
-        self.duration = duration
-        self.name = name
-        if messages is not None:
-            self.messages = messages
-
-    @property
-    def depth(self):
-        """Gets the depth of this InlineResponse20010.  # noqa: E501
-
-
-        :return: The depth of this InlineResponse20010.  # noqa: E501
-        :rtype: int
-        """
-        return self._depth
-
-    @depth.setter
-    def depth(self, depth):
-        """Sets the depth of this InlineResponse20010.
-
-
-        :param depth: The depth of this InlineResponse20010.  # noqa: E501
-        :type: int
-        """
-
-        self._depth = depth
+        if platform is not None:
+            self.platform = platform
+        if label is not None:
+            self.label = label
+        if credentialid is not None:
+            self.credentialid = credentialid
+        if created is not None:
+            self.created = created
+        if last_mod is not None:
+            self.last_mod = last_mod
+        if certificate is not None:
+            self.certificate = certificate
+        if provider_name is not None:
+            self.provider_name = provider_name
+        if apple_id_username is not None:
+            self.apple_id_username = apple_id_username
+        if links is not None:
+            self.links = links
 
     @property
-    def duration(self):
-        """Gets the duration of this InlineResponse20010.  # noqa: E501
+    def platform(self):
+        """Gets the platform of this InlineResponse20010.  # noqa: E501
 
 
-        :return: The duration of this InlineResponse20010.  # noqa: E501
-        :rtype: float
-        """
-        return self._duration
-
-    @duration.setter
-    def duration(self, duration):
-        """Sets the duration of this InlineResponse20010.
-
-
-        :param duration: The duration of this InlineResponse20010.  # noqa: E501
-        :type: float
-        """
-        if duration is None:
-            raise ValueError("Invalid value for `duration`, must not be `None`")  # noqa: E501
-
-        self._duration = duration
-
-    @property
-    def name(self):
-        """Gets the name of this InlineResponse20010.  # noqa: E501
-
-
-        :return: The name of this InlineResponse20010.  # noqa: E501
+        :return: The platform of this InlineResponse20010.  # noqa: E501
         :rtype: str
         """
-        return self._name
+        return self._platform
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this InlineResponse20010.
+    @platform.setter
+    def platform(self, platform):
+        """Sets the platform of this InlineResponse20010.
 
 
-        :param name: The name of this InlineResponse20010.  # noqa: E501
+        :param platform: The platform of this InlineResponse20010.  # noqa: E501
         :type: str
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        allowed_values = ["ios", "android", "webplayer", "webgl", "standaloneosxintel", "standaloneosxintel64", "standaloneosxuniversal", "standalonewindows", "standalonewindows64", "standalonelinux", "standalonelinux64", "standalonelinuxuniversal", "cloudrendering"]  # noqa: E501
+        if platform not in allowed_values:
+            raise ValueError(
+                "Invalid value for `platform` ({0}), must be one of {1}"  # noqa: E501
+                .format(platform, allowed_values)
+            )
 
-        self._name = name
+        self._platform = platform
 
     @property
-    def messages(self):
-        """Gets the messages of this InlineResponse20010.  # noqa: E501
+    def label(self):
+        """Gets the label of this InlineResponse20010.  # noqa: E501
 
 
-        :return: The messages of this InlineResponse20010.  # noqa: E501
-        :rtype: list[OrgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumberstepsMessages]
+        :return: The label of this InlineResponse20010.  # noqa: E501
+        :rtype: str
         """
-        return self._messages
+        return self._label
 
-    @messages.setter
-    def messages(self, messages):
-        """Sets the messages of this InlineResponse20010.
+    @label.setter
+    def label(self, label):
+        """Sets the label of this InlineResponse20010.
 
 
-        :param messages: The messages of this InlineResponse20010.  # noqa: E501
-        :type: list[OrgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumberstepsMessages]
+        :param label: The label of this InlineResponse20010.  # noqa: E501
+        :type: str
         """
 
-        self._messages = messages
+        self._label = label
+
+    @property
+    def credentialid(self):
+        """Gets the credentialid of this InlineResponse20010.  # noqa: E501
+
+
+        :return: The credentialid of this InlineResponse20010.  # noqa: E501
+        :rtype: str
+        """
+        return self._credentialid
+
+    @credentialid.setter
+    def credentialid(self, credentialid):
+        """Sets the credentialid of this InlineResponse20010.
+
+
+        :param credentialid: The credentialid of this InlineResponse20010.  # noqa: E501
+        :type: str
+        """
+
+        self._credentialid = credentialid
+
+    @property
+    def created(self):
+        """Gets the created of this InlineResponse20010.  # noqa: E501
+
+
+        :return: The created of this InlineResponse20010.  # noqa: E501
+        :rtype: str
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this InlineResponse20010.
+
+
+        :param created: The created of this InlineResponse20010.  # noqa: E501
+        :type: str
+        """
+
+        self._created = created
+
+    @property
+    def last_mod(self):
+        """Gets the last_mod of this InlineResponse20010.  # noqa: E501
+
+
+        :return: The last_mod of this InlineResponse20010.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_mod
+
+    @last_mod.setter
+    def last_mod(self, last_mod):
+        """Sets the last_mod of this InlineResponse20010.
+
+
+        :param last_mod: The last_mod of this InlineResponse20010.  # noqa: E501
+        :type: str
+        """
+
+        self._last_mod = last_mod
+
+    @property
+    def certificate(self):
+        """Gets the certificate of this InlineResponse20010.  # noqa: E501
+
+
+        :return: The certificate of this InlineResponse20010.  # noqa: E501
+        :rtype: OrgsorgidcredentialssigningosxCertificate
+        """
+        return self._certificate
+
+    @certificate.setter
+    def certificate(self, certificate):
+        """Sets the certificate of this InlineResponse20010.
+
+
+        :param certificate: The certificate of this InlineResponse20010.  # noqa: E501
+        :type: OrgsorgidcredentialssigningosxCertificate
+        """
+
+        self._certificate = certificate
+
+    @property
+    def provider_name(self):
+        """Gets the provider_name of this InlineResponse20010.  # noqa: E501
+
+
+        :return: The provider_name of this InlineResponse20010.  # noqa: E501
+        :rtype: str
+        """
+        return self._provider_name
+
+    @provider_name.setter
+    def provider_name(self, provider_name):
+        """Sets the provider_name of this InlineResponse20010.
+
+
+        :param provider_name: The provider_name of this InlineResponse20010.  # noqa: E501
+        :type: str
+        """
+
+        self._provider_name = provider_name
+
+    @property
+    def apple_id_username(self):
+        """Gets the apple_id_username of this InlineResponse20010.  # noqa: E501
+
+
+        :return: The apple_id_username of this InlineResponse20010.  # noqa: E501
+        :rtype: str
+        """
+        return self._apple_id_username
+
+    @apple_id_username.setter
+    def apple_id_username(self, apple_id_username):
+        """Sets the apple_id_username of this InlineResponse20010.
+
+
+        :param apple_id_username: The apple_id_username of this InlineResponse20010.  # noqa: E501
+        :type: str
+        """
+
+        self._apple_id_username = apple_id_username
+
+    @property
+    def links(self):
+        """Gets the links of this InlineResponse20010.  # noqa: E501
+
+
+        :return: The links of this InlineResponse20010.  # noqa: E501
+        :rtype: object
+        """
+        return self._links
+
+    @links.setter
+    def links(self, links):
+        """Sets the links of this InlineResponse20010.
+
+
+        :param links: The links of this InlineResponse20010.  # noqa: E501
+        :type: object
+        """
+
+        self._links = links
 
     def to_dict(self):
         """Returns the model properties as a dict"""

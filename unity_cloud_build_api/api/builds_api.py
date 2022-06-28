@@ -3,13 +3,12 @@
 """
     Unity Cloud Build
 
-    This API is intended to be used in conjunction with the Unity Cloud Build service. A tool for building your Unity projects in the Cloud.  See https://developer.cloud.unity3d.com for more information.  ## Making requests This website is built to allow requests to be made against the API. If you are currently logged into Cloud Build you should be able to make requests without entering an API key.   You can find your API key in the Unity Cloud Services portal by clicking on 'Cloud Build Preferences' in the sidebar. Copy the API Key and paste it into the upper left corner of this website. It will be used in all subsequent requests.  ## Clients The Unity Cloud Build API is based upon Swagger. Client libraries to integrate with your projects can easily be generated with the [Swagger Code Generator](https://github.com/swagger-api/swagger-codegen).  The JSON schema required to generate a client for this API version is located here:  ``` [API_URL][BASE_PATH]/api.json ```  ## Authorization The Unity Cloud Build API requires an access token from your Unity Cloud Build account, which can be found at https://build.cloud.unity3d.com/login/me  To authenticate requests, include a Basic Authentication header with your API key as the value. e.g.  ``` Authorization: Basic [YOUR API KEY] ```  ## Pagination Paged results will take two parameters. A page number that is calculated based upon the per_page amount. For instance if there are 40 results and you specify page 2 with per_page set to 10 you will receive records 11-20.  Paged results will also return a Content-Range header. For the example above the content range header would look like this:  ``` Content-Range: items 11-20/40 ```  ## Versioning The API version is indicated in the request URL. Upgrading to a newer API version can be done by changing the path.  The API will receive a new version in the following cases:    * removal of a path or request type   * addition of a required field   * removal of a required field  The following changes are considered backwards compatible and will not trigger a new API version:    * addition of an endpoint or request type   * addition of an optional field   * removal of an optional field   * changes to the format of ids  ## Rate Limiting Requests against the Cloud Build API are limited to a rate of 100 per minute. To preserve the quality of service throughout Cloud Build, additional rate limits may apply to some actions. For example, polling aggressively instead of using webhooks or making API calls with a high concurrency may result in rate limiting.  It is not intended for these rate limits to interfere with any legitimate use of the API. Please contact support at <cloudbuild@unity3d.com> if your use is affected by this rate limit.  You can check the returned HTTP headers for any API request to see your current rate limit status.   * __X-RateLimit-Limit:__ maximum number of requests per minute   * __X-RateLimit-Remaining:__ remaining number of requests in the current window   * __X-RateLimit-Reset:__ time at which the current window will reset (UTC epoch seconds)  Once you go over the rate limit you will receive an error response: ``` HTTP Status: 429 {   \"error\": \"Rate limit exceeded, retry in XX seconds\" } ```   # noqa: E501
+    This API is intended to be used in conjunction with the Unity Cloud Build service. A tool for building your Unity projects in the Cloud.  See https://developer.cloud.unity3d.com for more information.  ## Making requests This website is built to allow requests to be made against the API. If you are currently logged into Cloud Build you should be able to make requests without entering an API key.   You can find your API key in the Unity Cloud Services portal by clicking on 'Cloud Build Preferences' in the sidebar. Copy the API Key and paste it into the upper left corner of this website. It will be used in all subsequent requests.  ## Clients The Unity Cloud Build API is based upon Swagger. Client libraries to integrate with your projects can easily be generated with the [Swagger Code Generator](https://github.com/swagger-api/swagger-codegen).  The JSON schema required to generate a client for this API version is located here:  ``` [API_URL][BASE_PATH]/api.json ```  ## Authorization The Unity Cloud Build API requires an access token from your Unity Cloud Build account, which can be found at https://build.cloud.unity3d.com/login/me  To authenticate requests, include a Basic Authentication header with your API key as the value. e.g.  ``` Authorization: Basic [YOUR API KEY] ```  ## Pagination Paged results will take two parameters. A page number that is calculated based upon the per_page amount. For instance if there are 40 results and you specify page 2 with per_page set to 10 you will receive records 11-20.  Paged results will also return a Content-Range header. For the example above the content range header would look like this:  ``` Content-Range: items 11-20/40 ```  ## Versioning The API version is indicated in the request URL. Upgrading to a newer API version can be done by changing the path.  The API will receive a new version in the following cases:    * removal of a path or request type   * addition of a required field   * removal of a required field  The following changes are considered backwards compatible and will not trigger a new API version:    * addition of an endpoint or request type   * addition of an optional field   * removal of an optional field   * changes to the format of ids  ## Identifiers It should not be assumed that any of the identifiers used in paths will be a perfect match for your user-entered information. If you see unexpected 403s or 404s from API calls then check your identifiers match the ones used by the API. In particular, `projectId` does NOT typically change when the project is renamed and in fact may not be a direct match for the project name even at initial creation time.  To avoid confusion we recommend that instead of using the human-readable autogenerated orgId and projectId available from the API you should instead use:   * org foreign key for `orgId` (available from project APIs as `orgFk` and org APIs as `coreForeignKey`)   * `guid` for `projectId`  All links generated by the API and the Dashboard should follow this format already, making it easy to figure out the correct parameters by making a comparison.  ## Rate Limiting Requests against the Cloud Build API are limited to a rate of 100 per minute. To preserve the quality of service throughout Cloud Build, additional rate limits may apply to some actions. For example, polling aggressively instead of using webhooks or making API calls with a high concurrency may result in rate limiting.  It is not intended for these rate limits to interfere with any legitimate use of the API. Please contact support at <cloudbuild@unity3d.com> if your use is affected by this rate limit.  You can check the returned HTTP headers for any API request to see your current rate limit status.   * __X-RateLimit-Limit:__ maximum number of requests per minute   * __X-RateLimit-Remaining:__ remaining number of requests in the current window   * __X-RateLimit-Reset:__ time at which the current window will reset (UTC epoch seconds)  Once you go over the rate limit you will receive an error response: ``` HTTP Status: 429 {   \"error\": \"Rate limit exceeded, retry in XX seconds\" } ```   # noqa: E501
 
     OpenAPI spec version: 1.0.0
     
     Generated by: https://github.com/swagger-api/swagger-codegen.git
 """
-
 
 from __future__ import absolute_import
 
@@ -33,49 +32,49 @@ class BuildsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def batch_delete_build_artifacts(self, orgid, projectid, options, **kwargs):  # noqa: E501
+    def batch_delete_build_artifacts(self, body, orgid, projectid, **kwargs):  # noqa: E501
         """Delete artifacts for a batch of builds  # noqa: E501
 
         Delete all artifacts associated with the builds identified by the provided build target ids and build numbers. Builds marked as do not delete or that are currently building will be ignored.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.batch_delete_build_artifacts(orgid, projectid, options, async_req=True)
+        >>> thread = api.batch_delete_build_artifacts(body, orgid, projectid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param ArtifactsDeleteBody body: Options to specify what builds to delete (required)
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
-        :param Options8 options: Options to specify what builds to delete (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.batch_delete_build_artifacts_with_http_info(orgid, projectid, options, **kwargs)  # noqa: E501
+            return self.batch_delete_build_artifacts_with_http_info(body, orgid, projectid, **kwargs)  # noqa: E501
         else:
-            (data) = self.batch_delete_build_artifacts_with_http_info(orgid, projectid, options, **kwargs)  # noqa: E501
+            (data) = self.batch_delete_build_artifacts_with_http_info(body, orgid, projectid, **kwargs)  # noqa: E501
             return data
 
-    def batch_delete_build_artifacts_with_http_info(self, orgid, projectid, options, **kwargs):  # noqa: E501
+    def batch_delete_build_artifacts_with_http_info(self, body, orgid, projectid, **kwargs):  # noqa: E501
         """Delete artifacts for a batch of builds  # noqa: E501
 
         Delete all artifacts associated with the builds identified by the provided build target ids and build numbers. Builds marked as do not delete or that are currently building will be ignored.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.batch_delete_build_artifacts_with_http_info(orgid, projectid, options, async_req=True)
+        >>> thread = api.batch_delete_build_artifacts_with_http_info(body, orgid, projectid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param ArtifactsDeleteBody body: Options to specify what builds to delete (required)
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
-        :param Options8 options: Options to specify what builds to delete (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['orgid', 'projectid', 'options']  # noqa: E501
+        all_params = ['body', 'orgid', 'projectid']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -90,6 +89,10 @@ class BuildsApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `batch_delete_build_artifacts`")  # noqa: E501
         # verify the required parameter 'orgid' is set
         if ('orgid' not in params or
                 params['orgid'] is None):
@@ -98,10 +101,6 @@ class BuildsApi(object):
         if ('projectid' not in params or
                 params['projectid'] is None):
             raise ValueError("Missing the required parameter `projectid` when calling `batch_delete_build_artifacts`")  # noqa: E501
-        # verify the required parameter 'options' is set
-        if ('options' not in params or
-                params['options'] is None):
-            raise ValueError("Missing the required parameter `options` when calling `batch_delete_build_artifacts`")  # noqa: E501
 
         collection_formats = {}
 
@@ -119,8 +118,8 @@ class BuildsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'options' in params:
-            body_params = params['options']
+        if 'body' in params:
+            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
@@ -239,10 +238,6 @@ class BuildsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
@@ -363,10 +358,6 @@ class BuildsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -462,10 +453,6 @@ class BuildsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -499,6 +486,7 @@ class BuildsApi(object):
         :param str projectid: Project identifier (required)
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
+        :param str share_expiry:
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -524,12 +512,13 @@ class BuildsApi(object):
         :param str projectid: Project identifier (required)
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
+        :param str share_expiry:
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['orgid', 'projectid', 'buildtargetid', 'number']  # noqa: E501
+        all_params = ['orgid', 'projectid', 'buildtargetid', 'number', 'share_expiry']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -579,6 +568,8 @@ class BuildsApi(object):
 
         form_params = []
         local_var_files = {}
+        if 'share_expiry' in params:
+            form_params.append(('shareExpiry', params['share_expiry']))  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
@@ -698,10 +689,6 @@ class BuildsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -818,10 +805,6 @@ class BuildsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
@@ -950,10 +933,6 @@ class BuildsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -1073,10 +1052,6 @@ class BuildsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -1111,7 +1086,7 @@ class BuildsApi(object):
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
         :param str include: Extra fields to include in the response
-        :return: OrgsorgidprojectsprojectidbuildtargetsBuilds
+        :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1137,7 +1112,7 @@ class BuildsApi(object):
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
         :param str include: Extra fields to include in the response
-        :return: OrgsorgidprojectsprojectidbuildtargetsBuilds
+        :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1198,11 +1173,7 @@ class BuildsApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain', 'text/html', 'text/csv', 'application/json-accepted'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apikey', 'filetoken', 'permissions']  # noqa: E501
@@ -1215,7 +1186,7 @@ class BuildsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrgsorgidprojectsprojectidbuildtargetsBuilds',  # noqa: E501
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1341,11 +1312,7 @@ class BuildsApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+            ['text/plain-full', 'text/plain-compact', 'text/html-compact', 'application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
@@ -1380,7 +1347,7 @@ class BuildsApi(object):
         :param str projectid: Project identifier (required)
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
-        :return: list[InlineResponse20010]
+        :return: list[InlineResponse20012]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1405,7 +1372,7 @@ class BuildsApi(object):
         :param str projectid: Project identifier (required)
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
-        :return: list[InlineResponse20010]
+        :return: list[InlineResponse20012]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1466,10 +1433,6 @@ class BuildsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -1481,7 +1444,7 @@ class BuildsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20010]',  # noqa: E501
+            response_type='list[InlineResponse20012]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1510,7 +1473,7 @@ class BuildsApi(object):
         :param bool show_deleted: Query for builds that have been deleted
         :param bool only_favorites: Query for builds that have been favorited
         :param bool clean_build: Query for builds that have either been built clean or using caches
-        :return: list[OrgsorgidprojectsprojectidbuildtargetsBuilds]
+        :return: list[InlineResponse20011]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1542,7 +1505,7 @@ class BuildsApi(object):
         :param bool show_deleted: Query for builds that have been deleted
         :param bool only_favorites: Query for builds that have been favorited
         :param bool clean_build: Query for builds that have either been built clean or using caches
-        :return: list[OrgsorgidprojectsprojectidbuildtargetsBuilds]
+        :return: list[InlineResponse20011]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1613,10 +1576,6 @@ class BuildsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -1628,7 +1587,7 @@ class BuildsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrgsorgidprojectsprojectidbuildtargetsBuilds]',  # noqa: E501
+            response_type='list[InlineResponse20011]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1655,7 +1614,7 @@ class BuildsApi(object):
         :param bool show_deleted: Query for builds that have been deleted
         :param bool only_favorites: Query for builds that have been favorited
         :param bool clean_build: Query for builds that have either been built clean or using caches
-        :return: list[OrgsorgidprojectsprojectidbuildtargetsBuilds]
+        :return: list[InlineResponse20011]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1685,7 +1644,7 @@ class BuildsApi(object):
         :param bool show_deleted: Query for builds that have been deleted
         :param bool only_favorites: Query for builds that have been favorited
         :param bool clean_build: Query for builds that have either been built clean or using caches
-        :return: list[OrgsorgidprojectsprojectidbuildtargetsBuilds]
+        :return: list[InlineResponse20011]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1744,10 +1703,6 @@ class BuildsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -1759,7 +1714,7 @@ class BuildsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrgsorgidprojectsprojectidbuildtargetsBuilds]',  # noqa: E501
+            response_type='list[InlineResponse20011]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1867,15 +1822,138 @@ class BuildsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{orgid}/projects/{projectid}/buildtargets/{buildtargetid}/builds/{number}/share', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_share(self, orgid, projectid, buildtargetid, number, **kwargs):  # noqa: E501
+        """Modify existing share link  # noqa: E501
+
+        Modify an existing share link. Only intended for updating the Expiry without revoking the link.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_share(orgid, projectid, buildtargetid, number, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str projectid: Project identifier (required)
+        :param str buildtargetid: unique id auto-generated from the build target name (required)
+        :param str number: Build number or in some cases _all (required)
+        :param str share_expiry:
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.modify_share_with_http_info(orgid, projectid, buildtargetid, number, **kwargs)  # noqa: E501
+        else:
+            (data) = self.modify_share_with_http_info(orgid, projectid, buildtargetid, number, **kwargs)  # noqa: E501
+            return data
+
+    def modify_share_with_http_info(self, orgid, projectid, buildtargetid, number, **kwargs):  # noqa: E501
+        """Modify existing share link  # noqa: E501
+
+        Modify an existing share link. Only intended for updating the Expiry without revoking the link.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_share_with_http_info(orgid, projectid, buildtargetid, number, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str projectid: Project identifier (required)
+        :param str buildtargetid: unique id auto-generated from the build target name (required)
+        :param str number: Build number or in some cases _all (required)
+        :param str share_expiry:
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['orgid', 'projectid', 'buildtargetid', 'number', 'share_expiry']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_share" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `modify_share`")  # noqa: E501
+        # verify the required parameter 'projectid' is set
+        if ('projectid' not in params or
+                params['projectid'] is None):
+            raise ValueError("Missing the required parameter `projectid` when calling `modify_share`")  # noqa: E501
+        # verify the required parameter 'buildtargetid' is set
+        if ('buildtargetid' not in params or
+                params['buildtargetid'] is None):
+            raise ValueError("Missing the required parameter `buildtargetid` when calling `modify_share`")  # noqa: E501
+        # verify the required parameter 'number' is set
+        if ('number' not in params or
+                params['number'] is None):
+            raise ValueError("Missing the required parameter `number` when calling `modify_share`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'orgid' in params:
+            path_params['orgid'] = params['orgid']  # noqa: E501
+        if 'projectid' in params:
+            path_params['projectid'] = params['projectid']  # noqa: E501
+        if 'buildtargetid' in params:
+            path_params['buildtargetid'] = params['buildtargetid']  # noqa: E501
+        if 'number' in params:
+            path_params['number'] = params['number']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'share_expiry' in params:
+            form_params.append(('shareExpiry', params['share_expiry']))  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/x-www-form-urlencoded'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'permissions']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{orgid}/projects/{projectid}/buildtargets/{buildtargetid}/builds/{number}/share', 'PUT',
             path_params,
             query_params,
             header_params,
@@ -1904,7 +1982,7 @@ class BuildsApi(object):
         :param str projectid: Project identifier (required)
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
-        :return: list[OrgsorgidprojectsprojectidbuildtargetsBuilds]
+        :return: list[InlineResponse20011]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1929,7 +2007,7 @@ class BuildsApi(object):
         :param str projectid: Project identifier (required)
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
-        :return: list[OrgsorgidprojectsprojectidbuildtargetsBuilds]
+        :return: list[InlineResponse20011]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1988,11 +2066,7 @@ class BuildsApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain', 'text/html', 'text/csv', 'application/json-accepted', 'application/json-already-building'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
@@ -2005,7 +2079,7 @@ class BuildsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrgsorgidprojectsprojectidbuildtargetsBuilds]',  # noqa: E501
+            response_type='list[InlineResponse20011]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2113,10 +2187,6 @@ class BuildsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -2149,8 +2219,11 @@ class BuildsApi(object):
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
         :param str buildtargetid: unique id auto-generated from the build target name (required)
-        :param Options9 options: Options for starting the builds. You can specify a platform and label only when  starting a local (_local) build. A local build will return immediately and be  marked as successful. 
-        :return: list[OrgsorgidprojectsprojectidbuildtargetsBuilds]
+        :param BuildtargetidBuildsBody body: Options for starting the builds. You can specify a platform and label only when
+starting a local (_local) build. A local build will return immediately and be
+marked as successful.
+
+        :return: list[InlineResponse20011]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2174,13 +2247,16 @@ class BuildsApi(object):
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
         :param str buildtargetid: unique id auto-generated from the build target name (required)
-        :param Options9 options: Options for starting the builds. You can specify a platform and label only when  starting a local (_local) build. A local build will return immediately and be  marked as successful. 
-        :return: list[OrgsorgidprojectsprojectidbuildtargetsBuilds]
+        :param BuildtargetidBuildsBody body: Options for starting the builds. You can specify a platform and label only when
+starting a local (_local) build. A local build will return immediately and be
+marked as successful.
+
+        :return: list[InlineResponse20011]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['orgid', 'projectid', 'buildtargetid', 'options']  # noqa: E501
+        all_params = ['orgid', 'projectid', 'buildtargetid', 'body']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2226,11 +2302,11 @@ class BuildsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'options' in params:
-            body_params = params['options']
+        if 'body' in params:
+            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
+            ['application/json', 'text/plain', 'text/html', 'text/csv', 'application/json-accepted', 'application/json-already-building'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -2247,7 +2323,7 @@ class BuildsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrgsorgidprojectsprojectidbuildtargetsBuilds]',  # noqa: E501
+            response_type='list[InlineResponse20011]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2255,51 +2331,51 @@ class BuildsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_build(self, orgid, projectid, buildtargetid, number, options, **kwargs):  # noqa: E501
+    def update_build(self, body, orgid, projectid, buildtargetid, number, **kwargs):  # noqa: E501
         """Update build information  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_build(orgid, projectid, buildtargetid, number, options, async_req=True)
+        >>> thread = api.update_build(body, orgid, projectid, buildtargetid, number, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param BuildsNumberBody body: Options for build update (required)
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
-        :param Options10 options: Options for build update (required)
-        :return: OrgsorgidprojectsprojectidbuildtargetsBuilds
+        :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_build_with_http_info(orgid, projectid, buildtargetid, number, options, **kwargs)  # noqa: E501
+            return self.update_build_with_http_info(body, orgid, projectid, buildtargetid, number, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_build_with_http_info(orgid, projectid, buildtargetid, number, options, **kwargs)  # noqa: E501
+            (data) = self.update_build_with_http_info(body, orgid, projectid, buildtargetid, number, **kwargs)  # noqa: E501
             return data
 
-    def update_build_with_http_info(self, orgid, projectid, buildtargetid, number, options, **kwargs):  # noqa: E501
+    def update_build_with_http_info(self, body, orgid, projectid, buildtargetid, number, **kwargs):  # noqa: E501
         """Update build information  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_build_with_http_info(orgid, projectid, buildtargetid, number, options, async_req=True)
+        >>> thread = api.update_build_with_http_info(body, orgid, projectid, buildtargetid, number, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param BuildsNumberBody body: Options for build update (required)
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
         :param str buildtargetid: unique id auto-generated from the build target name (required)
         :param str number: Build number or in some cases _all (required)
-        :param Options10 options: Options for build update (required)
-        :return: OrgsorgidprojectsprojectidbuildtargetsBuilds
+        :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['orgid', 'projectid', 'buildtargetid', 'number', 'options']  # noqa: E501
+        all_params = ['body', 'orgid', 'projectid', 'buildtargetid', 'number']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2314,6 +2390,10 @@ class BuildsApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `update_build`")  # noqa: E501
         # verify the required parameter 'orgid' is set
         if ('orgid' not in params or
                 params['orgid'] is None):
@@ -2330,10 +2410,6 @@ class BuildsApi(object):
         if ('number' not in params or
                 params['number'] is None):
             raise ValueError("Missing the required parameter `number` when calling `update_build`")  # noqa: E501
-        # verify the required parameter 'options' is set
-        if ('options' not in params or
-                params['options'] is None):
-            raise ValueError("Missing the required parameter `options` when calling `update_build`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2355,11 +2431,11 @@ class BuildsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'options' in params:
-            body_params = params['options']
+        if 'body' in params:
+            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
+            ['application/json', 'text/plain', 'text/html', 'text/csv', 'application/json-accepted'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -2376,7 +2452,7 @@ class BuildsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrgsorgidprojectsprojectidbuildtargetsBuilds',  # noqa: E501
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

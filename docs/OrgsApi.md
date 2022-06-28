@@ -1,13 +1,12 @@
 # unity_cloud_build_api.OrgsApi
 
-All URIs are relative to *https://localhost/api/v1*
+All URIs are relative to */api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_billing_plans**](OrgsApi.md#get_billing_plans) | **GET** /orgs/{orgid}/billingplan | Get billing plan
 [**get_ssh_key_for_org**](OrgsApi.md#get_ssh_key_for_org) | **GET** /orgs/{orgid}/sshkey | Get SSH Key
 [**regenerate_ssh_key**](OrgsApi.md#regenerate_ssh_key) | **POST** /orgs/{orgid}/sshkey | Regenerate SSH Key
-
 
 # **get_billing_plans**
 > object get_billing_plans(orgid)
@@ -23,7 +22,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -60,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -79,7 +77,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -116,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -135,7 +132,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -172,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

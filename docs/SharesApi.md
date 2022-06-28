@@ -1,11 +1,10 @@
 # unity_cloud_build_api.SharesApi
 
-All URIs are relative to *https://localhost/api/v1*
+All URIs are relative to */api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_share_metadata**](SharesApi.md#get_share_metadata) | **GET** /shares/{shareid} | Get details on shared build including download link
-
 
 # **get_share_metadata**
 > object get_share_metadata(shareid, include=include)
@@ -21,12 +20,10 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure HTTP basic authorization: filetoken
+configuration.password = 'YOUR_PASSWORD'# Configure HTTP basic authorization: filetoken
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -61,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

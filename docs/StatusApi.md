@@ -1,14 +1,13 @@
 # unity_cloud_build_api.StatusApi
 
-All URIs are relative to *https://localhost/api/v1*
+All URIs are relative to */api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_status**](StatusApi.md#get_status) | **GET** /status | Get Cloud Build Status
 
-
 # **get_status**
-> list[InlineResponse20011] get_status()
+> list[InlineResponse20013] get_status()
 
 Get Cloud Build Status
 
@@ -19,12 +18,10 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure HTTP basic authorization: filetoken
+configuration.password = 'YOUR_PASSWORD'# Configure HTTP basic authorization: filetoken
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -45,7 +42,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**list[InlineResponse20011]**](InlineResponse20011.md)
+[**list[InlineResponse20013]**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -53,7 +50,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

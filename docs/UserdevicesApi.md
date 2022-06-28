@@ -1,15 +1,14 @@
 # unity_cloud_build_api.UserdevicesApi
 
-All URIs are relative to *https://localhost/api/v1*
+All URIs are relative to */api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_device**](UserdevicesApi.md#create_device) | **POST** /users/me/devices | Create iOS device profile
 [**list_devices_for_user**](UserdevicesApi.md#list_devices_for_user) | **GET** /users/me/devices | List iOS device profiles
 
-
 # **create_device**
-> object create_device(options)
+> object create_device(body)
 
 Create iOS device profile
 
@@ -22,23 +21,21 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure HTTP basic authorization: filetoken
+configuration.password = 'YOUR_PASSWORD'# Configure HTTP basic authorization: filetoken
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = unity_cloud_build_api.UserdevicesApi(unity_cloud_build_api.ApiClient(configuration))
-options = unity_cloud_build_api.Options1() # Options1 | 
+body = unity_cloud_build_api.MeDevicesBody() # MeDevicesBody | 
 
 try:
     # Create iOS device profile
-    api_response = api_instance.create_device(options)
+    api_response = api_instance.create_device(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UserdevicesApi->create_device: %s\n" % e)
@@ -48,7 +45,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **options** | [**Options1**](Options1.md)|  | 
+ **body** | [**MeDevicesBody**](MeDevicesBody.md)|  | 
 
 ### Return type
 
@@ -79,12 +76,10 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure HTTP basic authorization: filetoken
+configuration.password = 'YOUR_PASSWORD'# Configure HTTP basic authorization: filetoken
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -113,7 +108,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

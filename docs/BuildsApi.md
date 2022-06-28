@@ -1,6 +1,6 @@
 # unity_cloud_build_api.BuildsApi
 
-All URIs are relative to *https://localhost/api/v1*
+All URIs are relative to */api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,14 +19,14 @@ Method | HTTP request | Description
 [**get_builds**](BuildsApi.md#get_builds) | **GET** /orgs/{orgid}/projects/{projectid}/buildtargets/{buildtargetid}/builds | List all builds
 [**get_builds_for_org**](BuildsApi.md#get_builds_for_org) | **GET** /orgs/{orgid}/builds | List all builds for org
 [**get_share**](BuildsApi.md#get_share) | **GET** /orgs/{orgid}/projects/{projectid}/buildtargets/{buildtargetid}/builds/{number}/share | Get the share link
+[**modify_share**](BuildsApi.md#modify_share) | **PUT** /orgs/{orgid}/projects/{projectid}/buildtargets/{buildtargetid}/builds/{number}/share | Modify existing share link
 [**resign_build_artifact**](BuildsApi.md#resign_build_artifact) | **POST** /orgs/{orgid}/projects/{projectid}/buildtargets/{buildtargetid}/builds/{number}/resign | Re-sign a build artifact
 [**revoke_share**](BuildsApi.md#revoke_share) | **DELETE** /orgs/{orgid}/projects/{projectid}/buildtargets/{buildtargetid}/builds/{number}/share | Revoke a shared link
 [**start_builds**](BuildsApi.md#start_builds) | **POST** /orgs/{orgid}/projects/{projectid}/buildtargets/{buildtargetid}/builds | Create new build
 [**update_build**](BuildsApi.md#update_build) | **PUT** /orgs/{orgid}/projects/{projectid}/buildtargets/{buildtargetid}/builds/{number} | Update build information
 
-
 # **batch_delete_build_artifacts**
-> str batch_delete_build_artifacts(orgid, projectid, options)
+> str batch_delete_build_artifacts(body, orgid, projectid)
 
 Delete artifacts for a batch of builds
 
@@ -39,7 +39,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -50,13 +49,13 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = unity_cloud_build_api.BuildsApi(unity_cloud_build_api.ApiClient(configuration))
+body = unity_cloud_build_api.ArtifactsDeleteBody() # ArtifactsDeleteBody | Options to specify what builds to delete
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
-options = unity_cloud_build_api.Options8() # Options8 | Options to specify what builds to delete
 
 try:
     # Delete artifacts for a batch of builds
-    api_response = api_instance.batch_delete_build_artifacts(orgid, projectid, options)
+    api_response = api_instance.batch_delete_build_artifacts(body, orgid, projectid)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BuildsApi->batch_delete_build_artifacts: %s\n" % e)
@@ -66,9 +65,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**ArtifactsDeleteBody**](ArtifactsDeleteBody.md)| Options to specify what builds to delete | 
  **orgid** | **str**| Organization identifier | 
  **projectid** | **str**| Project identifier | 
- **options** | [**Options8**](Options8.md)| Options to specify what builds to delete | 
 
 ### Return type
 
@@ -99,7 +98,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -140,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -159,7 +157,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -202,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -221,7 +218,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -258,13 +254,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_share**
-> object create_share(orgid, projectid, buildtargetid, number)
+> object create_share(orgid, projectid, buildtargetid, number, share_expiry=share_expiry)
 
 Create a new link to share a project
 
@@ -277,7 +273,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -292,10 +287,11 @@ orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
 number = 'number_example' # str | Build number or in some cases _all
+share_expiry = 'share_expiry_example' # str |  (optional)
 
 try:
     # Create a new link to share a project
-    api_response = api_instance.create_share(orgid, projectid, buildtargetid, number)
+    api_response = api_instance.create_share(orgid, projectid, buildtargetid, number, share_expiry=share_expiry)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BuildsApi->create_share: %s\n" % e)
@@ -309,6 +305,7 @@ Name | Type | Description  | Notes
  **projectid** | **str**| Project identifier | 
  **buildtargetid** | **str**| unique id auto-generated from the build target name | 
  **number** | **str**| Build number or in some cases _all | 
+ **share_expiry** | **str**|  | [optional] 
 
 ### Return type
 
@@ -337,7 +334,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -378,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -395,7 +391,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -438,7 +433,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -457,7 +452,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -472,8 +466,8 @@ orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
 number = 'number_example' # str | Build number or in some cases _all
-per_page = 25 # float | Number of audit log records to retrieve (optional) (default to 25)
-page = 1 # float | Skip to page number, based on per_page value (optional) (default to 1)
+per_page = 25.0 # float | Number of audit log records to retrieve (optional) (default to 25.0)
+page = 1.0 # float | Skip to page number, based on per_page value (optional) (default to 1.0)
 
 try:
     # Get audit log
@@ -491,8 +485,8 @@ Name | Type | Description  | Notes
  **projectid** | **str**| Project identifier | 
  **buildtargetid** | **str**| unique id auto-generated from the build target name | 
  **number** | **str**| Build number or in some cases _all | 
- **per_page** | **float**| Number of audit log records to retrieve | [optional] [default to 25]
- **page** | **float**| Skip to page number, based on per_page value | [optional] [default to 1]
+ **per_page** | **float**| Number of audit log records to retrieve | [optional] [default to 25.0]
+ **page** | **float**| Skip to page number, based on per_page value | [optional] [default to 1.0]
 
 ### Return type
 
@@ -504,7 +498,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -523,7 +517,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -537,8 +530,8 @@ api_instance = unity_cloud_build_api.BuildsApi(unity_cloud_build_api.ApiClient(c
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
-per_page = 25 # float | Number of audit log records to retrieve (optional) (default to 25)
-page = 1 # float | Skip to page number, based on per_page value (optional) (default to 1)
+per_page = 25.0 # float | Number of audit log records to retrieve (optional) (default to 25.0)
+page = 1.0 # float | Skip to page number, based on per_page value (optional) (default to 1.0)
 
 try:
     # Get audit log
@@ -555,8 +548,8 @@ Name | Type | Description  | Notes
  **orgid** | **str**| Organization identifier | 
  **projectid** | **str**| Project identifier | 
  **buildtargetid** | **str**| unique id auto-generated from the build target name | 
- **per_page** | **float**| Number of audit log records to retrieve | [optional] [default to 25]
- **page** | **float**| Skip to page number, based on per_page value | [optional] [default to 1]
+ **per_page** | **float**| Number of audit log records to retrieve | [optional] [default to 25.0]
+ **page** | **float**| Skip to page number, based on per_page value | [optional] [default to 1.0]
 
 ### Return type
 
@@ -568,7 +561,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -587,12 +580,10 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure HTTP basic authorization: filetoken
+configuration.password = 'YOUR_PASSWORD'# Configure HTTP basic authorization: filetoken
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -636,8 +627,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, text/plain, text/html, text/csv
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/plain, text/html, text/csv, application/json-accepted
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -655,7 +646,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -670,9 +660,9 @@ orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
 number = 'number_example' # str | Build number or in some cases _all
-offsetlines = 1 # float | Stream log from the given line number (optional) (default to 1)
+offsetlines = 1.0 # float | Stream log from the given line number (optional) (default to 1.0)
 linenumbers = false # bool | Include log line numbers in the text output (optional) (default to false)
-last_line_number = 0 # float | The last line number seen, numbering will continue from here (optional) (default to 0)
+last_line_number = 0.0 # float | The last line number seen, numbering will continue from here (optional) (default to 0.0)
 compact = false # bool | Return the compact log, showing only errors and warnings (optional) (default to false)
 with_html = false # bool | Surround important lines (errors, warnings) with SPAN and CSS markup  (optional) (default to false)
 
@@ -691,9 +681,9 @@ Name | Type | Description  | Notes
  **projectid** | **str**| Project identifier | 
  **buildtargetid** | **str**| unique id auto-generated from the build target name | 
  **number** | **str**| Build number or in some cases _all | 
- **offsetlines** | **float**| Stream log from the given line number | [optional] [default to 1]
+ **offsetlines** | **float**| Stream log from the given line number | [optional] [default to 1.0]
  **linenumbers** | **bool**| Include log line numbers in the text output | [optional] [default to false]
- **last_line_number** | **float**| The last line number seen, numbering will continue from here | [optional] [default to 0]
+ **last_line_number** | **float**| The last line number seen, numbering will continue from here | [optional] [default to 0.0]
  **compact** | **bool**| Return the compact log, showing only errors and warnings | [optional] [default to false]
  **with_html** | **bool**| Surround important lines (errors, warnings) with SPAN and CSS markup  | [optional] [default to false]
 
@@ -707,13 +697,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, text/plain, text/html, text/csv
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain-full, text/plain-compact, text/html-compact, application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_build_steps**
-> list[InlineResponse20010] get_build_steps(orgid, projectid, buildtargetid, number)
+> list[InlineResponse20012] get_build_steps(orgid, projectid, buildtargetid, number)
 
 Get the build steps for a given build
 
@@ -726,7 +716,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -761,7 +750,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20010]**](InlineResponse20010.md)
+[**list[InlineResponse20012]**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -769,13 +758,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_builds**
-> list[OrgsorgidprojectsprojectidbuildtargetsBuilds] get_builds(orgid, projectid, buildtargetid, include=include, per_page=per_page, page=page, build_status=build_status, platform=platform, show_deleted=show_deleted, only_favorites=only_favorites, clean_build=clean_build)
+> list[InlineResponse20011] get_builds(orgid, projectid, buildtargetid, include=include, per_page=per_page, page=page, build_status=build_status, platform=platform, show_deleted=show_deleted, only_favorites=only_favorites, clean_build=clean_build)
 
 List all builds
 
@@ -788,7 +777,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -803,10 +791,10 @@ orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
 include = 'include_example' # str | Extra fields to include in the response (optional)
-per_page = 25 # float | Number of audit log records to retrieve (optional) (default to 25)
-page = 1 # float | Skip to page number, based on per_page value (optional) (default to 1)
-build_status = '' # str | Query for only builds of a specific status (optional) (default to )
-platform = '' # str | Query for only builds of a specific platform (optional) (default to )
+per_page = 25.0 # float | Number of audit log records to retrieve (optional) (default to 25.0)
+page = 1.0 # float | Skip to page number, based on per_page value (optional) (default to 1.0)
+build_status = 'build_status_example' # str | Query for only builds of a specific status (optional)
+platform = 'platform_example' # str | Query for only builds of a specific platform (optional)
 show_deleted = false # bool | Query for builds that have been deleted (optional) (default to false)
 only_favorites = false # bool | Query for builds that have been favorited (optional) (default to false)
 clean_build = true # bool | Query for builds that have either been built clean or using caches (optional)
@@ -827,17 +815,17 @@ Name | Type | Description  | Notes
  **projectid** | **str**| Project identifier | 
  **buildtargetid** | **str**| unique id auto-generated from the build target name | 
  **include** | **str**| Extra fields to include in the response | [optional] 
- **per_page** | **float**| Number of audit log records to retrieve | [optional] [default to 25]
- **page** | **float**| Skip to page number, based on per_page value | [optional] [default to 1]
- **build_status** | **str**| Query for only builds of a specific status | [optional] [default to ]
- **platform** | **str**| Query for only builds of a specific platform | [optional] [default to ]
+ **per_page** | **float**| Number of audit log records to retrieve | [optional] [default to 25.0]
+ **page** | **float**| Skip to page number, based on per_page value | [optional] [default to 1.0]
+ **build_status** | **str**| Query for only builds of a specific status | [optional] 
+ **platform** | **str**| Query for only builds of a specific platform | [optional] 
  **show_deleted** | **bool**| Query for builds that have been deleted | [optional] [default to false]
  **only_favorites** | **bool**| Query for builds that have been favorited | [optional] [default to false]
  **clean_build** | **bool**| Query for builds that have either been built clean or using caches | [optional] 
 
 ### Return type
 
-[**list[OrgsorgidprojectsprojectidbuildtargetsBuilds]**](OrgsorgidprojectsprojectidbuildtargetsBuilds.md)
+[**list[InlineResponse20011]**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -845,13 +833,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_builds_for_org**
-> list[OrgsorgidprojectsprojectidbuildtargetsBuilds] get_builds_for_org(orgid, include=include, per_page=per_page, page=page, build_status=build_status, platform=platform, show_deleted=show_deleted, only_favorites=only_favorites, clean_build=clean_build)
+> list[InlineResponse20011] get_builds_for_org(orgid, include=include, per_page=per_page, page=page, build_status=build_status, platform=platform, show_deleted=show_deleted, only_favorites=only_favorites, clean_build=clean_build)
 
 List all builds for org
 
@@ -864,7 +852,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -877,10 +864,10 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = unity_cloud_build_api.BuildsApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 include = 'include_example' # str | Extra fields to include in the response (optional)
-per_page = 25 # float | Number of audit log records to retrieve (optional) (default to 25)
-page = 1 # float | Skip to page number, based on per_page value (optional) (default to 1)
-build_status = '' # str | Query for only builds of a specific status (optional) (default to )
-platform = '' # str | Query for only builds of a specific platform (optional) (default to )
+per_page = 25.0 # float | Number of audit log records to retrieve (optional) (default to 25.0)
+page = 1.0 # float | Skip to page number, based on per_page value (optional) (default to 1.0)
+build_status = 'build_status_example' # str | Query for only builds of a specific status (optional)
+platform = 'platform_example' # str | Query for only builds of a specific platform (optional)
 show_deleted = false # bool | Query for builds that have been deleted (optional) (default to false)
 only_favorites = false # bool | Query for builds that have been favorited (optional) (default to false)
 clean_build = true # bool | Query for builds that have either been built clean or using caches (optional)
@@ -899,17 +886,17 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orgid** | **str**| Organization identifier | 
  **include** | **str**| Extra fields to include in the response | [optional] 
- **per_page** | **float**| Number of audit log records to retrieve | [optional] [default to 25]
- **page** | **float**| Skip to page number, based on per_page value | [optional] [default to 1]
- **build_status** | **str**| Query for only builds of a specific status | [optional] [default to ]
- **platform** | **str**| Query for only builds of a specific platform | [optional] [default to ]
+ **per_page** | **float**| Number of audit log records to retrieve | [optional] [default to 25.0]
+ **page** | **float**| Skip to page number, based on per_page value | [optional] [default to 1.0]
+ **build_status** | **str**| Query for only builds of a specific status | [optional] 
+ **platform** | **str**| Query for only builds of a specific platform | [optional] 
  **show_deleted** | **bool**| Query for builds that have been deleted | [optional] [default to false]
  **only_favorites** | **bool**| Query for builds that have been favorited | [optional] [default to false]
  **clean_build** | **bool**| Query for builds that have either been built clean or using caches | [optional] 
 
 ### Return type
 
-[**list[OrgsorgidprojectsprojectidbuildtargetsBuilds]**](OrgsorgidprojectsprojectidbuildtargetsBuilds.md)
+[**list[InlineResponse20011]**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -917,7 +904,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -936,7 +923,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -979,13 +965,76 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/plain, text/html, text/csv
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **modify_share**
+> object modify_share(orgid, projectid, buildtargetid, number, share_expiry=share_expiry)
+
+Modify existing share link
+
+Modify an existing share link. Only intended for updating the Expiry without revoking the link.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import unity_cloud_build_api
+from unity_cloud_build_api.rest import ApiException
+from pprint import pprint
+# Configure HTTP basic authorization: apikey
+configuration = unity_cloud_build_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure OAuth2 access token for authorization: permissions
+configuration = unity_cloud_build_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = unity_cloud_build_api.BuildsApi(unity_cloud_build_api.ApiClient(configuration))
+orgid = 'orgid_example' # str | Organization identifier
+projectid = 'projectid_example' # str | Project identifier
+buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
+number = 'number_example' # str | Build number or in some cases _all
+share_expiry = 'share_expiry_example' # str |  (optional)
+
+try:
+    # Modify existing share link
+    api_response = api_instance.modify_share(orgid, projectid, buildtargetid, number, share_expiry=share_expiry)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling BuildsApi->modify_share: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orgid** | **str**| Organization identifier | 
+ **projectid** | **str**| Project identifier | 
+ **buildtargetid** | **str**| unique id auto-generated from the build target name | 
+ **number** | **str**| Build number or in some cases _all | 
+ **share_expiry** | **str**|  | [optional] 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[apikey](../README.md#apikey), [permissions](../README.md#permissions)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **resign_build_artifact**
-> list[OrgsorgidprojectsprojectidbuildtargetsBuilds] resign_build_artifact(orgid, projectid, buildtargetid, number)
+> list[InlineResponse20011] resign_build_artifact(orgid, projectid, buildtargetid, number)
 
 Re-sign a build artifact
 
@@ -998,7 +1047,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -1033,7 +1081,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[OrgsorgidprojectsprojectidbuildtargetsBuilds]**](OrgsorgidprojectsprojectidbuildtargetsBuilds.md)
+[**list[InlineResponse20011]**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -1041,8 +1089,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, text/plain, text/html, text/csv
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/plain, text/html, text/csv, application/json-accepted, application/json-already-building
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1060,7 +1108,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -1103,13 +1150,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_builds**
-> list[OrgsorgidprojectsprojectidbuildtargetsBuilds] start_builds(orgid, projectid, buildtargetid, options=options)
+> list[InlineResponse20011] start_builds(orgid, projectid, buildtargetid, body=body)
 
 Create new build
 
@@ -1122,7 +1169,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -1136,11 +1182,14 @@ api_instance = unity_cloud_build_api.BuildsApi(unity_cloud_build_api.ApiClient(c
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
-options = unity_cloud_build_api.Options9() # Options9 | Options for starting the builds. You can specify a platform and label only when  starting a local (_local) build. A local build will return immediately and be  marked as successful.  (optional)
+body = unity_cloud_build_api.BuildtargetidBuildsBody() # BuildtargetidBuildsBody | Options for starting the builds. You can specify a platform and label only when
+starting a local (_local) build. A local build will return immediately and be
+marked as successful.
+ (optional)
 
 try:
     # Create new build
-    api_response = api_instance.start_builds(orgid, projectid, buildtargetid, options=options)
+    api_response = api_instance.start_builds(orgid, projectid, buildtargetid, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BuildsApi->start_builds: %s\n" % e)
@@ -1153,11 +1202,14 @@ Name | Type | Description  | Notes
  **orgid** | **str**| Organization identifier | 
  **projectid** | **str**| Project identifier | 
  **buildtargetid** | **str**| unique id auto-generated from the build target name | 
- **options** | [**Options9**](Options9.md)| Options for starting the builds. You can specify a platform and label only when  starting a local (_local) build. A local build will return immediately and be  marked as successful.  | [optional] 
+ **body** | [**BuildtargetidBuildsBody**](BuildtargetidBuildsBody.md)| Options for starting the builds. You can specify a platform and label only when
+starting a local (_local) build. A local build will return immediately and be
+marked as successful.
+ | [optional] 
 
 ### Return type
 
-[**list[OrgsorgidprojectsprojectidbuildtargetsBuilds]**](OrgsorgidprojectsprojectidbuildtargetsBuilds.md)
+[**list[InlineResponse20011]**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -1166,12 +1218,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json, text/plain, text/html, text/csv
+ - **Accept**: application/json, text/plain, text/html, text/csv, application/json-accepted, application/json-already-building
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_build**
-> object update_build(orgid, projectid, buildtargetid, number, options)
+> object update_build(body, orgid, projectid, buildtargetid, number)
 
 Update build information
 
@@ -1182,7 +1234,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -1193,15 +1244,15 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = unity_cloud_build_api.BuildsApi(unity_cloud_build_api.ApiClient(configuration))
+body = unity_cloud_build_api.BuildsNumberBody() # BuildsNumberBody | Options for build update
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 buildtargetid = 'buildtargetid_example' # str | unique id auto-generated from the build target name
 number = 'number_example' # str | Build number or in some cases _all
-options = unity_cloud_build_api.Options10() # Options10 | Options for build update
 
 try:
     # Update build information
-    api_response = api_instance.update_build(orgid, projectid, buildtargetid, number, options)
+    api_response = api_instance.update_build(body, orgid, projectid, buildtargetid, number)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BuildsApi->update_build: %s\n" % e)
@@ -1211,11 +1262,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**BuildsNumberBody**](BuildsNumberBody.md)| Options for build update | 
  **orgid** | **str**| Organization identifier | 
  **projectid** | **str**| Project identifier | 
  **buildtargetid** | **str**| unique id auto-generated from the build target name | 
  **number** | **str**| Build number or in some cases _all | 
- **options** | [**Options10**](Options10.md)| Options for build update | 
 
 ### Return type
 
@@ -1228,7 +1279,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json, text/plain, text/html, text/csv
+ - **Accept**: application/json, text/plain, text/html, text/csv, application/json-accepted
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

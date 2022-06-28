@@ -5,17 +5,17 @@
 """
     Unity Cloud Build
 
-    This API is intended to be used in conjunction with the Unity Cloud Build service. A tool for building your Unity projects in the Cloud.  See https://developer.cloud.unity3d.com for more information.  ## Making requests This website is built to allow requests to be made against the API. If you are currently logged into Cloud Build you should be able to make requests without entering an API key.   You can find your API key in the Unity Cloud Services portal by clicking on 'Cloud Build Preferences' in the sidebar. Copy the API Key and paste it into the upper left corner of this website. It will be used in all subsequent requests.  ## Clients The Unity Cloud Build API is based upon Swagger. Client libraries to integrate with your projects can easily be generated with the [Swagger Code Generator](https://github.com/swagger-api/swagger-codegen).  The JSON schema required to generate a client for this API version is located here:  ``` [API_URL][BASE_PATH]/api.json ```  ## Authorization The Unity Cloud Build API requires an access token from your Unity Cloud Build account, which can be found at https://build.cloud.unity3d.com/login/me  To authenticate requests, include a Basic Authentication header with your API key as the value. e.g.  ``` Authorization: Basic [YOUR API KEY] ```  ## Pagination Paged results will take two parameters. A page number that is calculated based upon the per_page amount. For instance if there are 40 results and you specify page 2 with per_page set to 10 you will receive records 11-20.  Paged results will also return a Content-Range header. For the example above the content range header would look like this:  ``` Content-Range: items 11-20/40 ```  ## Versioning The API version is indicated in the request URL. Upgrading to a newer API version can be done by changing the path.  The API will receive a new version in the following cases:    * removal of a path or request type   * addition of a required field   * removal of a required field  The following changes are considered backwards compatible and will not trigger a new API version:    * addition of an endpoint or request type   * addition of an optional field   * removal of an optional field   * changes to the format of ids  ## Rate Limiting Requests against the Cloud Build API are limited to a rate of 100 per minute. To preserve the quality of service throughout Cloud Build, additional rate limits may apply to some actions. For example, polling aggressively instead of using webhooks or making API calls with a high concurrency may result in rate limiting.  It is not intended for these rate limits to interfere with any legitimate use of the API. Please contact support at <cloudbuild@unity3d.com> if your use is affected by this rate limit.  You can check the returned HTTP headers for any API request to see your current rate limit status.   * __X-RateLimit-Limit:__ maximum number of requests per minute   * __X-RateLimit-Remaining:__ remaining number of requests in the current window   * __X-RateLimit-Reset:__ time at which the current window will reset (UTC epoch seconds)  Once you go over the rate limit you will receive an error response: ``` HTTP Status: 429 {   \"error\": \"Rate limit exceeded, retry in XX seconds\" } ```   # noqa: E501
+    This API is intended to be used in conjunction with the Unity Cloud Build service. A tool for building your Unity projects in the Cloud.  See https://developer.cloud.unity3d.com for more information.  ## Making requests This website is built to allow requests to be made against the API. If you are currently logged into Cloud Build you should be able to make requests without entering an API key.   You can find your API key in the Unity Cloud Services portal by clicking on 'Cloud Build Preferences' in the sidebar. Copy the API Key and paste it into the upper left corner of this website. It will be used in all subsequent requests.  ## Clients The Unity Cloud Build API is based upon Swagger. Client libraries to integrate with your projects can easily be generated with the [Swagger Code Generator](https://github.com/swagger-api/swagger-codegen).  The JSON schema required to generate a client for this API version is located here:  ``` [API_URL][BASE_PATH]/api.json ```  ## Authorization The Unity Cloud Build API requires an access token from your Unity Cloud Build account, which can be found at https://build.cloud.unity3d.com/login/me  To authenticate requests, include a Basic Authentication header with your API key as the value. e.g.  ``` Authorization: Basic [YOUR API KEY] ```  ## Pagination Paged results will take two parameters. A page number that is calculated based upon the per_page amount. For instance if there are 40 results and you specify page 2 with per_page set to 10 you will receive records 11-20.  Paged results will also return a Content-Range header. For the example above the content range header would look like this:  ``` Content-Range: items 11-20/40 ```  ## Versioning The API version is indicated in the request URL. Upgrading to a newer API version can be done by changing the path.  The API will receive a new version in the following cases:    * removal of a path or request type   * addition of a required field   * removal of a required field  The following changes are considered backwards compatible and will not trigger a new API version:    * addition of an endpoint or request type   * addition of an optional field   * removal of an optional field   * changes to the format of ids  ## Identifiers It should not be assumed that any of the identifiers used in paths will be a perfect match for your user-entered information. If you see unexpected 403s or 404s from API calls then check your identifiers match the ones used by the API. In particular, `projectId` does NOT typically change when the project is renamed and in fact may not be a direct match for the project name even at initial creation time.  To avoid confusion we recommend that instead of using the human-readable autogenerated orgId and projectId available from the API you should instead use:   * org foreign key for `orgId` (available from project APIs as `orgFk` and org APIs as `coreForeignKey`)   * `guid` for `projectId`  All links generated by the API and the Dashboard should follow this format already, making it easy to figure out the correct parameters by making a comparison.  ## Rate Limiting Requests against the Cloud Build API are limited to a rate of 100 per minute. To preserve the quality of service throughout Cloud Build, additional rate limits may apply to some actions. For example, polling aggressively instead of using webhooks or making API calls with a high concurrency may result in rate limiting.  It is not intended for these rate limits to interfere with any legitimate use of the API. Please contact support at <cloudbuild@unity3d.com> if your use is affected by this rate limit.  You can check the returned HTTP headers for any API request to see your current rate limit status.   * __X-RateLimit-Limit:__ maximum number of requests per minute   * __X-RateLimit-Remaining:__ remaining number of requests in the current window   * __X-RateLimit-Reset:__ time at which the current window will reset (UTC epoch seconds)  Once you go over the rate limit you will receive an error response: ``` HTTP Status: 429 {   \"error\": \"Rate limit exceeded, retry in XX seconds\" } ```   # noqa: E501
 
     OpenAPI spec version: 1.0.0
     
     Generated by: https://github.com/swagger-api/swagger-codegen.git
 """
 
-
 from __future__ import absolute_import
 
 # import apis into sdk package
+from unity_cloud_build_api.api.billing_api import BillingApi
 from unity_cloud_build_api.api.builds_api import BuildsApi
 from unity_cloud_build_api.api.buildtargets_api import BuildtargetsApi
 from unity_cloud_build_api.api.config_api import ConfigApi
@@ -28,15 +28,24 @@ from unity_cloud_build_api.api.status_api import StatusApi
 from unity_cloud_build_api.api.userdevices_api import UserdevicesApi
 from unity_cloud_build_api.api.users_api import UsersApi
 from unity_cloud_build_api.api.webhooks_api import WebhooksApi
-
 # import ApiClient
 from unity_cloud_build_api.api_client import ApiClient
 from unity_cloud_build_api.configuration import Configuration
 # import models into sdk package
+from unity_cloud_build_api.models.android_credentialid_body import AndroidCredentialidBody
+from unity_cloud_build_api.models.android_credentialid_body1 import AndroidCredentialidBody1
+from unity_cloud_build_api.models.artifacts_delete_body import ArtifactsDeleteBody
+from unity_cloud_build_api.models.builds_number_body import BuildsNumberBody
+from unity_cloud_build_api.models.buildtargetid_builds_body import BuildtargetidBuildsBody
+from unity_cloud_build_api.models.buildtargets_buildtargetid_body import BuildtargetsBuildtargetidBody
+from unity_cloud_build_api.models.hooks_id_body import HooksIdBody
+from unity_cloud_build_api.models.hooks_id_body1 import HooksIdBody1
 from unity_cloud_build_api.models.inline_response200 import InlineResponse200
 from unity_cloud_build_api.models.inline_response2001 import InlineResponse2001
 from unity_cloud_build_api.models.inline_response20010 import InlineResponse20010
 from unity_cloud_build_api.models.inline_response20011 import InlineResponse20011
+from unity_cloud_build_api.models.inline_response20012 import InlineResponse20012
+from unity_cloud_build_api.models.inline_response20013 import InlineResponse20013
 from unity_cloud_build_api.models.inline_response2002 import InlineResponse2002
 from unity_cloud_build_api.models.inline_response2003 import InlineResponse2003
 from unity_cloud_build_api.models.inline_response2004 import InlineResponse2004
@@ -45,19 +54,16 @@ from unity_cloud_build_api.models.inline_response2006 import InlineResponse2006
 from unity_cloud_build_api.models.inline_response2007 import InlineResponse2007
 from unity_cloud_build_api.models.inline_response2008 import InlineResponse2008
 from unity_cloud_build_api.models.inline_response2009 import InlineResponse2009
-from unity_cloud_build_api.models.options import Options
-from unity_cloud_build_api.models.options1 import Options1
-from unity_cloud_build_api.models.options10 import Options10
-from unity_cloud_build_api.models.options2 import Options2
-from unity_cloud_build_api.models.options3 import Options3
-from unity_cloud_build_api.models.options4 import Options4
-from unity_cloud_build_api.models.options5 import Options5
-from unity_cloud_build_api.models.options6 import Options6
-from unity_cloud_build_api.models.options7 import Options7
-from unity_cloud_build_api.models.options8 import Options8
-from unity_cloud_build_api.models.options9 import Options9
+from unity_cloud_build_api.models.ios_credentialid_body import IosCredentialidBody
+from unity_cloud_build_api.models.ios_credentialid_body1 import IosCredentialidBody1
+from unity_cloud_build_api.models.me_devices_body import MeDevicesBody
+from unity_cloud_build_api.models.number_share_body import NumberShareBody
+from unity_cloud_build_api.models.number_share_body1 import NumberShareBody1
+from unity_cloud_build_api.models.orgid_hooks_body import OrgidHooksBody
+from unity_cloud_build_api.models.orgid_projects_body import OrgidProjectsBody
 from unity_cloud_build_api.models.orgsorgidcredentialssigningandroid_keystore import OrgsorgidcredentialssigningandroidKeystore
 from unity_cloud_build_api.models.orgsorgidcredentialssigningios_provisioning_profile import OrgsorgidcredentialssigningiosProvisioningProfile
+from unity_cloud_build_api.models.orgsorgidcredentialssigningosx_certificate import OrgsorgidcredentialssigningosxCertificate
 from unity_cloud_build_api.models.orgsorgidprojectsprojectidartifactsdelete_builds import OrgsorgidprojectsprojectidartifactsdeleteBuilds
 from unity_cloud_build_api.models.orgsorgidprojectsprojectidauditlog_lines import OrgsorgidprojectsprojectidauditlogLines
 from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_build_report import OrgsorgidprojectsprojectidbuildtargetsBuildReport
@@ -86,7 +92,20 @@ from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_setting
 from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_settings_advanced_unity_player_settings import OrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnityPlayerSettings
 from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_settings_advanced_unity_player_settings_android import OrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnityPlayerSettingsAndroid
 from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_settings_advanced_xcode import OrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedXcode
+from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_settings_build_schedule import OrgsorgidprojectsprojectidbuildtargetsSettingsBuildSchedule
 from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_settings_platform import OrgsorgidprojectsprojectidbuildtargetsSettingsPlatform
 from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_settings_scm import OrgsorgidprojectsprojectidbuildtargetsSettingsScm
 from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargets_test_results import OrgsorgidprojectsprojectidbuildtargetsTestResults
 from unity_cloud_build_api.models.orgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumbersteps_messages import OrgsorgidprojectsprojectidbuildtargetsbuildtargetidbuildsnumberstepsMessages
+from unity_cloud_build_api.models.osx_credentialid_body import OsxCredentialidBody
+from unity_cloud_build_api.models.osx_credentialid_body1 import OsxCredentialidBody1
+from unity_cloud_build_api.models.projectid_buildtargets_body import ProjectidBuildtargetsBody
+from unity_cloud_build_api.models.projectid_hooks_body import ProjectidHooksBody
+from unity_cloud_build_api.models.projects_projectid_body import ProjectsProjectidBody
+from unity_cloud_build_api.models.signing_android_body import SigningAndroidBody
+from unity_cloud_build_api.models.signing_android_body1 import SigningAndroidBody1
+from unity_cloud_build_api.models.signing_ios_body import SigningIosBody
+from unity_cloud_build_api.models.signing_ios_body1 import SigningIosBody1
+from unity_cloud_build_api.models.signing_osx_body import SigningOsxBody
+from unity_cloud_build_api.models.signing_osx_body1 import SigningOsxBody1
+from unity_cloud_build_api.models.users_me_body import UsersMeBody

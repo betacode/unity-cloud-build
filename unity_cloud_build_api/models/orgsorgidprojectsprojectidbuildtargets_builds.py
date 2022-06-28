@@ -3,26 +3,23 @@
 """
     Unity Cloud Build
 
-    This API is intended to be used in conjunction with the Unity Cloud Build service. A tool for building your Unity projects in the Cloud.  See https://developer.cloud.unity3d.com for more information.  ## Making requests This website is built to allow requests to be made against the API. If you are currently logged into Cloud Build you should be able to make requests without entering an API key.   You can find your API key in the Unity Cloud Services portal by clicking on 'Cloud Build Preferences' in the sidebar. Copy the API Key and paste it into the upper left corner of this website. It will be used in all subsequent requests.  ## Clients The Unity Cloud Build API is based upon Swagger. Client libraries to integrate with your projects can easily be generated with the [Swagger Code Generator](https://github.com/swagger-api/swagger-codegen).  The JSON schema required to generate a client for this API version is located here:  ``` [API_URL][BASE_PATH]/api.json ```  ## Authorization The Unity Cloud Build API requires an access token from your Unity Cloud Build account, which can be found at https://build.cloud.unity3d.com/login/me  To authenticate requests, include a Basic Authentication header with your API key as the value. e.g.  ``` Authorization: Basic [YOUR API KEY] ```  ## Pagination Paged results will take two parameters. A page number that is calculated based upon the per_page amount. For instance if there are 40 results and you specify page 2 with per_page set to 10 you will receive records 11-20.  Paged results will also return a Content-Range header. For the example above the content range header would look like this:  ``` Content-Range: items 11-20/40 ```  ## Versioning The API version is indicated in the request URL. Upgrading to a newer API version can be done by changing the path.  The API will receive a new version in the following cases:    * removal of a path or request type   * addition of a required field   * removal of a required field  The following changes are considered backwards compatible and will not trigger a new API version:    * addition of an endpoint or request type   * addition of an optional field   * removal of an optional field   * changes to the format of ids  ## Rate Limiting Requests against the Cloud Build API are limited to a rate of 100 per minute. To preserve the quality of service throughout Cloud Build, additional rate limits may apply to some actions. For example, polling aggressively instead of using webhooks or making API calls with a high concurrency may result in rate limiting.  It is not intended for these rate limits to interfere with any legitimate use of the API. Please contact support at <cloudbuild@unity3d.com> if your use is affected by this rate limit.  You can check the returned HTTP headers for any API request to see your current rate limit status.   * __X-RateLimit-Limit:__ maximum number of requests per minute   * __X-RateLimit-Remaining:__ remaining number of requests in the current window   * __X-RateLimit-Reset:__ time at which the current window will reset (UTC epoch seconds)  Once you go over the rate limit you will receive an error response: ``` HTTP Status: 429 {   \"error\": \"Rate limit exceeded, retry in XX seconds\" } ```   # noqa: E501
+    This API is intended to be used in conjunction with the Unity Cloud Build service. A tool for building your Unity projects in the Cloud.  See https://developer.cloud.unity3d.com for more information.  ## Making requests This website is built to allow requests to be made against the API. If you are currently logged into Cloud Build you should be able to make requests without entering an API key.   You can find your API key in the Unity Cloud Services portal by clicking on 'Cloud Build Preferences' in the sidebar. Copy the API Key and paste it into the upper left corner of this website. It will be used in all subsequent requests.  ## Clients The Unity Cloud Build API is based upon Swagger. Client libraries to integrate with your projects can easily be generated with the [Swagger Code Generator](https://github.com/swagger-api/swagger-codegen).  The JSON schema required to generate a client for this API version is located here:  ``` [API_URL][BASE_PATH]/api.json ```  ## Authorization The Unity Cloud Build API requires an access token from your Unity Cloud Build account, which can be found at https://build.cloud.unity3d.com/login/me  To authenticate requests, include a Basic Authentication header with your API key as the value. e.g.  ``` Authorization: Basic [YOUR API KEY] ```  ## Pagination Paged results will take two parameters. A page number that is calculated based upon the per_page amount. For instance if there are 40 results and you specify page 2 with per_page set to 10 you will receive records 11-20.  Paged results will also return a Content-Range header. For the example above the content range header would look like this:  ``` Content-Range: items 11-20/40 ```  ## Versioning The API version is indicated in the request URL. Upgrading to a newer API version can be done by changing the path.  The API will receive a new version in the following cases:    * removal of a path or request type   * addition of a required field   * removal of a required field  The following changes are considered backwards compatible and will not trigger a new API version:    * addition of an endpoint or request type   * addition of an optional field   * removal of an optional field   * changes to the format of ids  ## Identifiers It should not be assumed that any of the identifiers used in paths will be a perfect match for your user-entered information. If you see unexpected 403s or 404s from API calls then check your identifiers match the ones used by the API. In particular, `projectId` does NOT typically change when the project is renamed and in fact may not be a direct match for the project name even at initial creation time.  To avoid confusion we recommend that instead of using the human-readable autogenerated orgId and projectId available from the API you should instead use:   * org foreign key for `orgId` (available from project APIs as `orgFk` and org APIs as `coreForeignKey`)   * `guid` for `projectId`  All links generated by the API and the Dashboard should follow this format already, making it easy to figure out the correct parameters by making a comparison.  ## Rate Limiting Requests against the Cloud Build API are limited to a rate of 100 per minute. To preserve the quality of service throughout Cloud Build, additional rate limits may apply to some actions. For example, polling aggressively instead of using webhooks or making API calls with a high concurrency may result in rate limiting.  It is not intended for these rate limits to interfere with any legitimate use of the API. Please contact support at <cloudbuild@unity3d.com> if your use is affected by this rate limit.  You can check the returned HTTP headers for any API request to see your current rate limit status.   * __X-RateLimit-Limit:__ maximum number of requests per minute   * __X-RateLimit-Remaining:__ remaining number of requests in the current window   * __X-RateLimit-Reset:__ time at which the current window will reset (UTC epoch seconds)  Once you go over the rate limit you will receive an error response: ``` HTTP Status: 429 {   \"error\": \"Rate limit exceeded, retry in XX seconds\" } ```   # noqa: E501
 
     OpenAPI spec version: 1.0.0
     
     Generated by: https://github.com/swagger-api/swagger-codegen.git
 """
 
-
 import pprint
 import re  # noqa: F401
 
 import six
-
 
 class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
     """NOTE: This class is auto generated by the swagger code generator program.
 
     Do not edit the class manually.
     """
-
     """
     Attributes:
       swagger_types (dict): The key is attribute name
@@ -50,6 +47,9 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         'publish_start_time': 'str',
         'publish_time_in_seconds': 'float',
         'total_time_in_seconds': 'float',
+        'unit_test_time_in_seconds': 'float',
+        'edit_mode_test_time_in_seconds': 'float',
+        'play_mode_test_time_in_seconds': 'float',
         'last_built_revision': 'str',
         'changeset': 'list[object]',
         'favorited': 'bool',
@@ -67,6 +67,7 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         'project_version': 'OrgsorgidprojectsprojectidbuildtargetsProjectVersion',
         'project_name': 'str',
         'project_id': 'str',
+        'project_guid': 'str',
         'org_id': 'str',
         'org_fk': 'str',
         'filetoken': 'str',
@@ -96,6 +97,9 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         'publish_start_time': 'publishStartTime',
         'publish_time_in_seconds': 'publishTimeInSeconds',
         'total_time_in_seconds': 'totalTimeInSeconds',
+        'unit_test_time_in_seconds': 'unitTestTimeInSeconds',
+        'edit_mode_test_time_in_seconds': 'editModeTestTimeInSeconds',
+        'play_mode_test_time_in_seconds': 'playModeTestTimeInSeconds',
         'last_built_revision': 'lastBuiltRevision',
         'changeset': 'changeset',
         'favorited': 'favorited',
@@ -113,6 +117,7 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         'project_version': 'projectVersion',
         'project_name': 'projectName',
         'project_id': 'projectId',
+        'project_guid': 'projectGuid',
         'org_id': 'orgId',
         'org_fk': 'orgFk',
         'filetoken': 'filetoken',
@@ -122,9 +127,8 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         'error': 'error'
     }
 
-    def __init__(self, build=None, buildtargetid=None, build_target_name=None, build_guid=None, build_status=None, clean_build=None, failure_details=None, canceled_by=None, platform=None, workspace_size=None, created=None, finished=None, checkout_start_time=None, checkout_time_in_seconds=None, build_start_time=None, build_time_in_seconds=None, publish_start_time=None, publish_time_in_seconds=None, total_time_in_seconds=None, last_built_revision=None, changeset=None, favorited=None, label=None, deleted=None, headless=None, credentials_outdated=None, deleted_by=None, queued_reason=None, cooldown_date=None, scm_branch=None, unity_version=None, xcode_version=None, audit_changes=None, project_version=None, project_name=None, project_id=None, org_id=None, org_fk=None, filetoken=None, links=None, build_report=None, test_results=None, error=None):  # noqa: E501
+    def __init__(self, build=None, buildtargetid=None, build_target_name=None, build_guid=None, build_status=None, clean_build=None, failure_details=None, canceled_by=None, platform=None, workspace_size=None, created=None, finished=None, checkout_start_time=None, checkout_time_in_seconds=None, build_start_time=None, build_time_in_seconds=None, publish_start_time=None, publish_time_in_seconds=None, total_time_in_seconds=None, unit_test_time_in_seconds=None, edit_mode_test_time_in_seconds=None, play_mode_test_time_in_seconds=None, last_built_revision=None, changeset=None, favorited=None, label=None, deleted=None, headless=None, credentials_outdated=None, deleted_by=None, queued_reason=None, cooldown_date=None, scm_branch=None, unity_version=None, xcode_version=None, audit_changes=None, project_version=None, project_name=None, project_id=None, project_guid=None, org_id=None, org_fk=None, filetoken=None, links=None, build_report=None, test_results=None, error=None):  # noqa: E501
         """OrgsorgidprojectsprojectidbuildtargetsBuilds - a model defined in Swagger"""  # noqa: E501
-
         self._build = None
         self._buildtargetid = None
         self._build_target_name = None
@@ -144,6 +148,9 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         self._publish_start_time = None
         self._publish_time_in_seconds = None
         self._total_time_in_seconds = None
+        self._unit_test_time_in_seconds = None
+        self._edit_mode_test_time_in_seconds = None
+        self._play_mode_test_time_in_seconds = None
         self._last_built_revision = None
         self._changeset = None
         self._favorited = None
@@ -161,6 +168,7 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         self._project_version = None
         self._project_name = None
         self._project_id = None
+        self._project_guid = None
         self._org_id = None
         self._org_fk = None
         self._filetoken = None
@@ -169,7 +177,6 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         self._test_results = None
         self._error = None
         self.discriminator = None
-
         if build is not None:
             self.build = build
         if buildtargetid is not None:
@@ -208,6 +215,12 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
             self.publish_time_in_seconds = publish_time_in_seconds
         if total_time_in_seconds is not None:
             self.total_time_in_seconds = total_time_in_seconds
+        if unit_test_time_in_seconds is not None:
+            self.unit_test_time_in_seconds = unit_test_time_in_seconds
+        if edit_mode_test_time_in_seconds is not None:
+            self.edit_mode_test_time_in_seconds = edit_mode_test_time_in_seconds
+        if play_mode_test_time_in_seconds is not None:
+            self.play_mode_test_time_in_seconds = play_mode_test_time_in_seconds
         if last_built_revision is not None:
             self.last_built_revision = last_built_revision
         if changeset is not None:
@@ -242,6 +255,8 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
             self.project_name = project_name
         if project_id is not None:
             self.project_id = project_id
+        if project_guid is not None:
+            self.project_guid = project_guid
         if org_id is not None:
             self.org_id = org_id
         if org_fk is not None:
@@ -319,8 +334,6 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         :param build_target_name: The build_target_name of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
         :type: str
         """
-        if build_target_name is not None and len(build_target_name) > 64:
-            raise ValueError("Invalid value for `build_target_name`, length must be less than or equal to `64`")  # noqa: E501
 
         self._build_target_name = build_target_name
 
@@ -438,7 +451,7 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         :param canceled_by: The canceled_by of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
         :type: str
         """
-        allowed_values = ["api", "service", "service-timelimit"]  # noqa: E501
+        allowed_values = ["api", "service", "service-timelimit", "concurrency-timelimit", "restart-limit", "evaluation-timelimit", "jenkins-timelimit", "service-badconfiguration"]  # noqa: E501
         if canceled_by not in allowed_values:
             raise ValueError(
                 "Invalid value for `canceled_by` ({0}), must be one of {1}"  # noqa: E501
@@ -465,7 +478,7 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         :param platform: The platform of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ios", "android", "webplayer", "webgl", "standaloneosxintel", "standaloneosxintel64", "standaloneosxuniversal", "standalonewindows", "standalonewindows64", "standalonelinux", "standalonelinux64", "standalonelinuxuniversal"]  # noqa: E501
+        allowed_values = ["ios", "android", "webplayer", "webgl", "standaloneosxintel", "standaloneosxintel64", "standaloneosxuniversal", "standalonewindows", "standalonewindows64", "standalonelinux", "standalonelinux64", "standalonelinuxuniversal", "cloudrendering"]  # noqa: E501
         if platform not in allowed_values:
             raise ValueError(
                 "Invalid value for `platform` ({0}), must be one of {1}"  # noqa: E501
@@ -705,6 +718,75 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         self._total_time_in_seconds = total_time_in_seconds
 
     @property
+    def unit_test_time_in_seconds(self):
+        """Gets the unit_test_time_in_seconds of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
+
+        total time for unit test execution step  # noqa: E501
+
+        :return: The unit_test_time_in_seconds of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
+        :rtype: float
+        """
+        return self._unit_test_time_in_seconds
+
+    @unit_test_time_in_seconds.setter
+    def unit_test_time_in_seconds(self, unit_test_time_in_seconds):
+        """Sets the unit_test_time_in_seconds of this OrgsorgidprojectsprojectidbuildtargetsBuilds.
+
+        total time for unit test execution step  # noqa: E501
+
+        :param unit_test_time_in_seconds: The unit_test_time_in_seconds of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
+        :type: float
+        """
+
+        self._unit_test_time_in_seconds = unit_test_time_in_seconds
+
+    @property
+    def edit_mode_test_time_in_seconds(self):
+        """Gets the edit_mode_test_time_in_seconds of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
+
+        total time for unit test execution step  # noqa: E501
+
+        :return: The edit_mode_test_time_in_seconds of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
+        :rtype: float
+        """
+        return self._edit_mode_test_time_in_seconds
+
+    @edit_mode_test_time_in_seconds.setter
+    def edit_mode_test_time_in_seconds(self, edit_mode_test_time_in_seconds):
+        """Sets the edit_mode_test_time_in_seconds of this OrgsorgidprojectsprojectidbuildtargetsBuilds.
+
+        total time for unit test execution step  # noqa: E501
+
+        :param edit_mode_test_time_in_seconds: The edit_mode_test_time_in_seconds of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
+        :type: float
+        """
+
+        self._edit_mode_test_time_in_seconds = edit_mode_test_time_in_seconds
+
+    @property
+    def play_mode_test_time_in_seconds(self):
+        """Gets the play_mode_test_time_in_seconds of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
+
+        total time for unit test execution step  # noqa: E501
+
+        :return: The play_mode_test_time_in_seconds of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
+        :rtype: float
+        """
+        return self._play_mode_test_time_in_seconds
+
+    @play_mode_test_time_in_seconds.setter
+    def play_mode_test_time_in_seconds(self, play_mode_test_time_in_seconds):
+        """Sets the play_mode_test_time_in_seconds of this OrgsorgidprojectsprojectidbuildtargetsBuilds.
+
+        total time for unit test execution step  # noqa: E501
+
+        :param play_mode_test_time_in_seconds: The play_mode_test_time_in_seconds of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
+        :type: float
+        """
+
+        self._play_mode_test_time_in_seconds = play_mode_test_time_in_seconds
+
+    @property
     def last_built_revision(self):
         """Gets the last_built_revision of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
 
@@ -908,7 +990,7 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         :param queued_reason: The queued_reason of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
         :type: str
         """
-        allowed_values = ["targetConcurrency", "cooldown", "buildConcurrency", "waitingForBuildAgent", "evaluating", "sentToBuilder", "notPending"]  # noqa: E501
+        allowed_values = ["targetConcurrency", "cooldown", "billingService", "buildConcurrency", "waitingForBuildAgent", "evaluating", "sentToBuilder", "notPending"]  # noqa: E501
         if queued_reason not in allowed_values:
             raise ValueError(
                 "Invalid value for `queued_reason` ({0}), must be one of {1}"  # noqa: E501
@@ -1092,6 +1174,27 @@ class OrgsorgidprojectsprojectidbuildtargetsBuilds(object):
         """
 
         self._project_id = project_id
+
+    @property
+    def project_guid(self):
+        """Gets the project_guid of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
+
+
+        :return: The project_guid of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_guid
+
+    @project_guid.setter
+    def project_guid(self, project_guid):
+        """Sets the project_guid of this OrgsorgidprojectsprojectidbuildtargetsBuilds.
+
+
+        :param project_guid: The project_guid of this OrgsorgidprojectsprojectidbuildtargetsBuilds.  # noqa: E501
+        :type: str
+        """
+
+        self._project_guid = project_guid
 
     @property
     def org_id(self):

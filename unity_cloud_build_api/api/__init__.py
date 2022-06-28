@@ -3,6 +3,7 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
+from unity_cloud_build_api.api.billing_api import BillingApi
 from unity_cloud_build_api.api.builds_api import BuildsApi
 from unity_cloud_build_api.api.buildtargets_api import BuildtargetsApi
 from unity_cloud_build_api.api.config_api import ConfigApi

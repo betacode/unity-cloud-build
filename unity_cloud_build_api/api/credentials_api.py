@@ -3,13 +3,12 @@
 """
     Unity Cloud Build
 
-    This API is intended to be used in conjunction with the Unity Cloud Build service. A tool for building your Unity projects in the Cloud.  See https://developer.cloud.unity3d.com for more information.  ## Making requests This website is built to allow requests to be made against the API. If you are currently logged into Cloud Build you should be able to make requests without entering an API key.   You can find your API key in the Unity Cloud Services portal by clicking on 'Cloud Build Preferences' in the sidebar. Copy the API Key and paste it into the upper left corner of this website. It will be used in all subsequent requests.  ## Clients The Unity Cloud Build API is based upon Swagger. Client libraries to integrate with your projects can easily be generated with the [Swagger Code Generator](https://github.com/swagger-api/swagger-codegen).  The JSON schema required to generate a client for this API version is located here:  ``` [API_URL][BASE_PATH]/api.json ```  ## Authorization The Unity Cloud Build API requires an access token from your Unity Cloud Build account, which can be found at https://build.cloud.unity3d.com/login/me  To authenticate requests, include a Basic Authentication header with your API key as the value. e.g.  ``` Authorization: Basic [YOUR API KEY] ```  ## Pagination Paged results will take two parameters. A page number that is calculated based upon the per_page amount. For instance if there are 40 results and you specify page 2 with per_page set to 10 you will receive records 11-20.  Paged results will also return a Content-Range header. For the example above the content range header would look like this:  ``` Content-Range: items 11-20/40 ```  ## Versioning The API version is indicated in the request URL. Upgrading to a newer API version can be done by changing the path.  The API will receive a new version in the following cases:    * removal of a path or request type   * addition of a required field   * removal of a required field  The following changes are considered backwards compatible and will not trigger a new API version:    * addition of an endpoint or request type   * addition of an optional field   * removal of an optional field   * changes to the format of ids  ## Rate Limiting Requests against the Cloud Build API are limited to a rate of 100 per minute. To preserve the quality of service throughout Cloud Build, additional rate limits may apply to some actions. For example, polling aggressively instead of using webhooks or making API calls with a high concurrency may result in rate limiting.  It is not intended for these rate limits to interfere with any legitimate use of the API. Please contact support at <cloudbuild@unity3d.com> if your use is affected by this rate limit.  You can check the returned HTTP headers for any API request to see your current rate limit status.   * __X-RateLimit-Limit:__ maximum number of requests per minute   * __X-RateLimit-Remaining:__ remaining number of requests in the current window   * __X-RateLimit-Reset:__ time at which the current window will reset (UTC epoch seconds)  Once you go over the rate limit you will receive an error response: ``` HTTP Status: 429 {   \"error\": \"Rate limit exceeded, retry in XX seconds\" } ```   # noqa: E501
+    This API is intended to be used in conjunction with the Unity Cloud Build service. A tool for building your Unity projects in the Cloud.  See https://developer.cloud.unity3d.com for more information.  ## Making requests This website is built to allow requests to be made against the API. If you are currently logged into Cloud Build you should be able to make requests without entering an API key.   You can find your API key in the Unity Cloud Services portal by clicking on 'Cloud Build Preferences' in the sidebar. Copy the API Key and paste it into the upper left corner of this website. It will be used in all subsequent requests.  ## Clients The Unity Cloud Build API is based upon Swagger. Client libraries to integrate with your projects can easily be generated with the [Swagger Code Generator](https://github.com/swagger-api/swagger-codegen).  The JSON schema required to generate a client for this API version is located here:  ``` [API_URL][BASE_PATH]/api.json ```  ## Authorization The Unity Cloud Build API requires an access token from your Unity Cloud Build account, which can be found at https://build.cloud.unity3d.com/login/me  To authenticate requests, include a Basic Authentication header with your API key as the value. e.g.  ``` Authorization: Basic [YOUR API KEY] ```  ## Pagination Paged results will take two parameters. A page number that is calculated based upon the per_page amount. For instance if there are 40 results and you specify page 2 with per_page set to 10 you will receive records 11-20.  Paged results will also return a Content-Range header. For the example above the content range header would look like this:  ``` Content-Range: items 11-20/40 ```  ## Versioning The API version is indicated in the request URL. Upgrading to a newer API version can be done by changing the path.  The API will receive a new version in the following cases:    * removal of a path or request type   * addition of a required field   * removal of a required field  The following changes are considered backwards compatible and will not trigger a new API version:    * addition of an endpoint or request type   * addition of an optional field   * removal of an optional field   * changes to the format of ids  ## Identifiers It should not be assumed that any of the identifiers used in paths will be a perfect match for your user-entered information. If you see unexpected 403s or 404s from API calls then check your identifiers match the ones used by the API. In particular, `projectId` does NOT typically change when the project is renamed and in fact may not be a direct match for the project name even at initial creation time.  To avoid confusion we recommend that instead of using the human-readable autogenerated orgId and projectId available from the API you should instead use:   * org foreign key for `orgId` (available from project APIs as `orgFk` and org APIs as `coreForeignKey`)   * `guid` for `projectId`  All links generated by the API and the Dashboard should follow this format already, making it easy to figure out the correct parameters by making a comparison.  ## Rate Limiting Requests against the Cloud Build API are limited to a rate of 100 per minute. To preserve the quality of service throughout Cloud Build, additional rate limits may apply to some actions. For example, polling aggressively instead of using webhooks or making API calls with a high concurrency may result in rate limiting.  It is not intended for these rate limits to interfere with any legitimate use of the API. Please contact support at <cloudbuild@unity3d.com> if your use is affected by this rate limit.  You can check the returned HTTP headers for any API request to see your current rate limit status.   * __X-RateLimit-Limit:__ maximum number of requests per minute   * __X-RateLimit-Remaining:__ remaining number of requests in the current window   * __X-RateLimit-Reset:__ time at which the current window will reset (UTC epoch seconds)  Once you go over the rate limit you will receive an error response: ``` HTTP Status: 429 {   \"error\": \"Rate limit exceeded, retry in XX seconds\" } ```   # noqa: E501
 
     OpenAPI spec version: 1.0.0
     
     Generated by: https://github.com/swagger-api/swagger-codegen.git
 """
-
 
 from __future__ import absolute_import
 
@@ -33,57 +32,57 @@ class CredentialsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def add_credentials_android(self, orgid, projectid, label, file, alias, keypass, storepass, **kwargs):  # noqa: E501
+    def add_credentials_android(self, label, file, alias, keypass, storepass, orgid, projectid, **kwargs):  # noqa: E501
         """Upload Android Credentials  # noqa: E501
 
         Upload a new android keystore for the project. NOTE: you must be a manager in the project's organization to add new credentials.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_credentials_android(orgid, projectid, label, file, alias, keypass, storepass, async_req=True)
+        >>> thread = api.add_credentials_android(label, file, alias, keypass, storepass, orgid, projectid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str label: (required)
+        :param str file: (required)
+        :param str alias: (required)
+        :param str keypass: (required)
+        :param str storepass: (required)
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
-        :param str label: Label for the uploaded credential (required)
-        :param file file: Keystore file (required)
-        :param str alias: Keystore alias (required)
-        :param str keypass: Keystore keypass (required)
-        :param str storepass: Keystore storepass (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.add_credentials_android_with_http_info(orgid, projectid, label, file, alias, keypass, storepass, **kwargs)  # noqa: E501
+            return self.add_credentials_android_with_http_info(label, file, alias, keypass, storepass, orgid, projectid, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_credentials_android_with_http_info(orgid, projectid, label, file, alias, keypass, storepass, **kwargs)  # noqa: E501
+            (data) = self.add_credentials_android_with_http_info(label, file, alias, keypass, storepass, orgid, projectid, **kwargs)  # noqa: E501
             return data
 
-    def add_credentials_android_with_http_info(self, orgid, projectid, label, file, alias, keypass, storepass, **kwargs):  # noqa: E501
+    def add_credentials_android_with_http_info(self, label, file, alias, keypass, storepass, orgid, projectid, **kwargs):  # noqa: E501
         """Upload Android Credentials  # noqa: E501
 
         Upload a new android keystore for the project. NOTE: you must be a manager in the project's organization to add new credentials.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_credentials_android_with_http_info(orgid, projectid, label, file, alias, keypass, storepass, async_req=True)
+        >>> thread = api.add_credentials_android_with_http_info(label, file, alias, keypass, storepass, orgid, projectid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str label: (required)
+        :param str file: (required)
+        :param str alias: (required)
+        :param str keypass: (required)
+        :param str storepass: (required)
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
-        :param str label: Label for the uploaded credential (required)
-        :param file file: Keystore file (required)
-        :param str alias: Keystore alias (required)
-        :param str keypass: Keystore keypass (required)
-        :param str storepass: Keystore storepass (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['orgid', 'projectid', 'label', 'file', 'alias', 'keypass', 'storepass']  # noqa: E501
+        all_params = ['label', 'file', 'alias', 'keypass', 'storepass', 'orgid', 'projectid']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -98,14 +97,6 @@ class CredentialsApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'orgid' is set
-        if ('orgid' not in params or
-                params['orgid'] is None):
-            raise ValueError("Missing the required parameter `orgid` when calling `add_credentials_android`")  # noqa: E501
-        # verify the required parameter 'projectid' is set
-        if ('projectid' not in params or
-                params['projectid'] is None):
-            raise ValueError("Missing the required parameter `projectid` when calling `add_credentials_android`")  # noqa: E501
         # verify the required parameter 'label' is set
         if ('label' not in params or
                 params['label'] is None):
@@ -126,6 +117,14 @@ class CredentialsApi(object):
         if ('storepass' not in params or
                 params['storepass'] is None):
             raise ValueError("Missing the required parameter `storepass` when calling `add_credentials_android`")  # noqa: E501
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `add_credentials_android`")  # noqa: E501
+        # verify the required parameter 'projectid' is set
+        if ('projectid' not in params or
+                params['projectid'] is None):
+            raise ValueError("Missing the required parameter `projectid` when calling `add_credentials_android`")  # noqa: E501
 
         collection_formats = {}
 
@@ -180,55 +179,55 @@ class CredentialsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def add_credentials_android_for_org(self, orgid, label, file, alias, keypass, storepass, **kwargs):  # noqa: E501
+    def add_credentials_android_for_org(self, label, file, alias, keypass, storepass, orgid, **kwargs):  # noqa: E501
         """Upload Android Credentials  # noqa: E501
 
         Upload a new android keystore for an organization. NOTE: you must be a manager in the organization to add new credentials.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_credentials_android_for_org(orgid, label, file, alias, keypass, storepass, async_req=True)
+        >>> thread = api.add_credentials_android_for_org(label, file, alias, keypass, storepass, orgid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str label: (required)
+        :param str file: (required)
+        :param str alias: (required)
+        :param str keypass: (required)
+        :param str storepass: (required)
         :param str orgid: Organization identifier (required)
-        :param str label: Label for the uploaded credential (required)
-        :param file file: Keystore file (required)
-        :param str alias: Keystore alias (required)
-        :param str keypass: Keystore keypass (required)
-        :param str storepass: Keystore storepass (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.add_credentials_android_for_org_with_http_info(orgid, label, file, alias, keypass, storepass, **kwargs)  # noqa: E501
+            return self.add_credentials_android_for_org_with_http_info(label, file, alias, keypass, storepass, orgid, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_credentials_android_for_org_with_http_info(orgid, label, file, alias, keypass, storepass, **kwargs)  # noqa: E501
+            (data) = self.add_credentials_android_for_org_with_http_info(label, file, alias, keypass, storepass, orgid, **kwargs)  # noqa: E501
             return data
 
-    def add_credentials_android_for_org_with_http_info(self, orgid, label, file, alias, keypass, storepass, **kwargs):  # noqa: E501
+    def add_credentials_android_for_org_with_http_info(self, label, file, alias, keypass, storepass, orgid, **kwargs):  # noqa: E501
         """Upload Android Credentials  # noqa: E501
 
         Upload a new android keystore for an organization. NOTE: you must be a manager in the organization to add new credentials.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_credentials_android_for_org_with_http_info(orgid, label, file, alias, keypass, storepass, async_req=True)
+        >>> thread = api.add_credentials_android_for_org_with_http_info(label, file, alias, keypass, storepass, orgid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str label: (required)
+        :param str file: (required)
+        :param str alias: (required)
+        :param str keypass: (required)
+        :param str storepass: (required)
         :param str orgid: Organization identifier (required)
-        :param str label: Label for the uploaded credential (required)
-        :param file file: Keystore file (required)
-        :param str alias: Keystore alias (required)
-        :param str keypass: Keystore keypass (required)
-        :param str storepass: Keystore storepass (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['orgid', 'label', 'file', 'alias', 'keypass', 'storepass']  # noqa: E501
+        all_params = ['label', 'file', 'alias', 'keypass', 'storepass', 'orgid']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -243,10 +242,6 @@ class CredentialsApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'orgid' is set
-        if ('orgid' not in params or
-                params['orgid'] is None):
-            raise ValueError("Missing the required parameter `orgid` when calling `add_credentials_android_for_org`")  # noqa: E501
         # verify the required parameter 'label' is set
         if ('label' not in params or
                 params['label'] is None):
@@ -267,6 +262,10 @@ class CredentialsApi(object):
         if ('storepass' not in params or
                 params['storepass'] is None):
             raise ValueError("Missing the required parameter `storepass` when calling `add_credentials_android_for_org`")  # noqa: E501
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `add_credentials_android_for_org`")  # noqa: E501
 
         collection_formats = {}
 
@@ -319,55 +318,55 @@ class CredentialsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def add_credentials_ios(self, orgid, projectid, label, file_certificate, file_provisioning_profile, **kwargs):  # noqa: E501
+    def add_credentials_ios(self, label, file_certificate, file_provisioning_profile, certificate_pass, orgid, projectid, **kwargs):  # noqa: E501
         """Upload iOS Credentials  # noqa: E501
 
         Upload a new iOS certificate and provisioning profile for the project. NOTE: you must be a manager in the project's organization to add new credentials.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_credentials_ios(orgid, projectid, label, file_certificate, file_provisioning_profile, async_req=True)
+        >>> thread = api.add_credentials_ios(label, file_certificate, file_provisioning_profile, certificate_pass, orgid, projectid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str label: (required)
+        :param str file_certificate: (required)
+        :param str file_provisioning_profile: (required)
+        :param str certificate_pass: (required)
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
-        :param str label: Label for the uploaded credentials (required)
-        :param file file_certificate: Certificate file (.p12) (required)
-        :param file file_provisioning_profile: Provisioning Profile (.mobileprovision) (required)
-        :param str certificate_pass: Certificate (.p12) password
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.add_credentials_ios_with_http_info(orgid, projectid, label, file_certificate, file_provisioning_profile, **kwargs)  # noqa: E501
+            return self.add_credentials_ios_with_http_info(label, file_certificate, file_provisioning_profile, certificate_pass, orgid, projectid, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_credentials_ios_with_http_info(orgid, projectid, label, file_certificate, file_provisioning_profile, **kwargs)  # noqa: E501
+            (data) = self.add_credentials_ios_with_http_info(label, file_certificate, file_provisioning_profile, certificate_pass, orgid, projectid, **kwargs)  # noqa: E501
             return data
 
-    def add_credentials_ios_with_http_info(self, orgid, projectid, label, file_certificate, file_provisioning_profile, **kwargs):  # noqa: E501
+    def add_credentials_ios_with_http_info(self, label, file_certificate, file_provisioning_profile, certificate_pass, orgid, projectid, **kwargs):  # noqa: E501
         """Upload iOS Credentials  # noqa: E501
 
         Upload a new iOS certificate and provisioning profile for the project. NOTE: you must be a manager in the project's organization to add new credentials.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_credentials_ios_with_http_info(orgid, projectid, label, file_certificate, file_provisioning_profile, async_req=True)
+        >>> thread = api.add_credentials_ios_with_http_info(label, file_certificate, file_provisioning_profile, certificate_pass, orgid, projectid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str label: (required)
+        :param str file_certificate: (required)
+        :param str file_provisioning_profile: (required)
+        :param str certificate_pass: (required)
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
-        :param str label: Label for the uploaded credentials (required)
-        :param file file_certificate: Certificate file (.p12) (required)
-        :param file file_provisioning_profile: Provisioning Profile (.mobileprovision) (required)
-        :param str certificate_pass: Certificate (.p12) password
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['orgid', 'projectid', 'label', 'file_certificate', 'file_provisioning_profile', 'certificate_pass']  # noqa: E501
+        all_params = ['label', 'file_certificate', 'file_provisioning_profile', 'certificate_pass', 'orgid', 'projectid']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -382,14 +381,6 @@ class CredentialsApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'orgid' is set
-        if ('orgid' not in params or
-                params['orgid'] is None):
-            raise ValueError("Missing the required parameter `orgid` when calling `add_credentials_ios`")  # noqa: E501
-        # verify the required parameter 'projectid' is set
-        if ('projectid' not in params or
-                params['projectid'] is None):
-            raise ValueError("Missing the required parameter `projectid` when calling `add_credentials_ios`")  # noqa: E501
         # verify the required parameter 'label' is set
         if ('label' not in params or
                 params['label'] is None):
@@ -402,6 +393,18 @@ class CredentialsApi(object):
         if ('file_provisioning_profile' not in params or
                 params['file_provisioning_profile'] is None):
             raise ValueError("Missing the required parameter `file_provisioning_profile` when calling `add_credentials_ios`")  # noqa: E501
+        # verify the required parameter 'certificate_pass' is set
+        if ('certificate_pass' not in params or
+                params['certificate_pass'] is None):
+            raise ValueError("Missing the required parameter `certificate_pass` when calling `add_credentials_ios`")  # noqa: E501
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `add_credentials_ios`")  # noqa: E501
+        # verify the required parameter 'projectid' is set
+        if ('projectid' not in params or
+                params['projectid'] is None):
+            raise ValueError("Missing the required parameter `projectid` when calling `add_credentials_ios`")  # noqa: E501
 
         collection_formats = {}
 
@@ -454,53 +457,53 @@ class CredentialsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def add_credentials_ios_for_org(self, orgid, label, file_certificate, file_provisioning_profile, **kwargs):  # noqa: E501
+    def add_credentials_ios_for_org(self, label, file_certificate, file_provisioning_profile, certificate_pass, orgid, **kwargs):  # noqa: E501
         """Upload iOS Credentials for organization  # noqa: E501
 
         Upload a new iOS certificate and provisioning profile for the organization. NOTE: you must be a manager in the organization to add new credentials.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_credentials_ios_for_org(orgid, label, file_certificate, file_provisioning_profile, async_req=True)
+        >>> thread = api.add_credentials_ios_for_org(label, file_certificate, file_provisioning_profile, certificate_pass, orgid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str label: (required)
+        :param str file_certificate: (required)
+        :param str file_provisioning_profile: (required)
+        :param str certificate_pass: (required)
         :param str orgid: Organization identifier (required)
-        :param str label: Label for the uploaded credentials (required)
-        :param file file_certificate: Certificate file (.p12) (required)
-        :param file file_provisioning_profile: Provisioning Profile (.mobileprovision) (required)
-        :param str certificate_pass: Certificate (.p12) password
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.add_credentials_ios_for_org_with_http_info(orgid, label, file_certificate, file_provisioning_profile, **kwargs)  # noqa: E501
+            return self.add_credentials_ios_for_org_with_http_info(label, file_certificate, file_provisioning_profile, certificate_pass, orgid, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_credentials_ios_for_org_with_http_info(orgid, label, file_certificate, file_provisioning_profile, **kwargs)  # noqa: E501
+            (data) = self.add_credentials_ios_for_org_with_http_info(label, file_certificate, file_provisioning_profile, certificate_pass, orgid, **kwargs)  # noqa: E501
             return data
 
-    def add_credentials_ios_for_org_with_http_info(self, orgid, label, file_certificate, file_provisioning_profile, **kwargs):  # noqa: E501
+    def add_credentials_ios_for_org_with_http_info(self, label, file_certificate, file_provisioning_profile, certificate_pass, orgid, **kwargs):  # noqa: E501
         """Upload iOS Credentials for organization  # noqa: E501
 
         Upload a new iOS certificate and provisioning profile for the organization. NOTE: you must be a manager in the organization to add new credentials.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_credentials_ios_for_org_with_http_info(orgid, label, file_certificate, file_provisioning_profile, async_req=True)
+        >>> thread = api.add_credentials_ios_for_org_with_http_info(label, file_certificate, file_provisioning_profile, certificate_pass, orgid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str label: (required)
+        :param str file_certificate: (required)
+        :param str file_provisioning_profile: (required)
+        :param str certificate_pass: (required)
         :param str orgid: Organization identifier (required)
-        :param str label: Label for the uploaded credentials (required)
-        :param file file_certificate: Certificate file (.p12) (required)
-        :param file file_provisioning_profile: Provisioning Profile (.mobileprovision) (required)
-        :param str certificate_pass: Certificate (.p12) password
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['orgid', 'label', 'file_certificate', 'file_provisioning_profile', 'certificate_pass']  # noqa: E501
+        all_params = ['label', 'file_certificate', 'file_provisioning_profile', 'certificate_pass', 'orgid']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -515,10 +518,6 @@ class CredentialsApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'orgid' is set
-        if ('orgid' not in params or
-                params['orgid'] is None):
-            raise ValueError("Missing the required parameter `orgid` when calling `add_credentials_ios_for_org`")  # noqa: E501
         # verify the required parameter 'label' is set
         if ('label' not in params or
                 params['label'] is None):
@@ -531,6 +530,14 @@ class CredentialsApi(object):
         if ('file_provisioning_profile' not in params or
                 params['file_provisioning_profile'] is None):
             raise ValueError("Missing the required parameter `file_provisioning_profile` when calling `add_credentials_ios_for_org`")  # noqa: E501
+        # verify the required parameter 'certificate_pass' is set
+        if ('certificate_pass' not in params or
+                params['certificate_pass'] is None):
+            raise ValueError("Missing the required parameter `certificate_pass` when calling `add_credentials_ios_for_org`")  # noqa: E501
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `add_credentials_ios_for_org`")  # noqa: E501
 
         collection_formats = {}
 
@@ -567,6 +574,324 @@ class CredentialsApi(object):
 
         return self.api_client.call_api(
             '/orgs/{orgid}/credentials/signing/ios', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def add_credentials_osx(self, label, certificate, certificate_pass, entitlements_file, provider_name, apple_id_username, apple_id_password, orgid, projectid, **kwargs):  # noqa: E501
+        """Upload OSX Credentials  # noqa: E501
+
+        Upload a new OSX certificate and provisioning profile for the project. NOTE: you must be a manager in the project's organization to add new credentials.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_credentials_osx(label, certificate, certificate_pass, entitlements_file, provider_name, apple_id_username, apple_id_password, orgid, projectid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str label: (required)
+        :param str certificate: (required)
+        :param str certificate_pass: (required)
+        :param str entitlements_file: (required)
+        :param str provider_name: (required)
+        :param str apple_id_username: (required)
+        :param str apple_id_password: (required)
+        :param str orgid: Organization identifier (required)
+        :param str projectid: Project identifier (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.add_credentials_osx_with_http_info(label, certificate, certificate_pass, entitlements_file, provider_name, apple_id_username, apple_id_password, orgid, projectid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.add_credentials_osx_with_http_info(label, certificate, certificate_pass, entitlements_file, provider_name, apple_id_username, apple_id_password, orgid, projectid, **kwargs)  # noqa: E501
+            return data
+
+    def add_credentials_osx_with_http_info(self, label, certificate, certificate_pass, entitlements_file, provider_name, apple_id_username, apple_id_password, orgid, projectid, **kwargs):  # noqa: E501
+        """Upload OSX Credentials  # noqa: E501
+
+        Upload a new OSX certificate and provisioning profile for the project. NOTE: you must be a manager in the project's organization to add new credentials.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_credentials_osx_with_http_info(label, certificate, certificate_pass, entitlements_file, provider_name, apple_id_username, apple_id_password, orgid, projectid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str label: (required)
+        :param str certificate: (required)
+        :param str certificate_pass: (required)
+        :param str entitlements_file: (required)
+        :param str provider_name: (required)
+        :param str apple_id_username: (required)
+        :param str apple_id_password: (required)
+        :param str orgid: Organization identifier (required)
+        :param str projectid: Project identifier (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['label', 'certificate', 'certificate_pass', 'entitlements_file', 'provider_name', 'apple_id_username', 'apple_id_password', 'orgid', 'projectid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_credentials_osx" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'label' is set
+        if ('label' not in params or
+                params['label'] is None):
+            raise ValueError("Missing the required parameter `label` when calling `add_credentials_osx`")  # noqa: E501
+        # verify the required parameter 'certificate' is set
+        if ('certificate' not in params or
+                params['certificate'] is None):
+            raise ValueError("Missing the required parameter `certificate` when calling `add_credentials_osx`")  # noqa: E501
+        # verify the required parameter 'certificate_pass' is set
+        if ('certificate_pass' not in params or
+                params['certificate_pass'] is None):
+            raise ValueError("Missing the required parameter `certificate_pass` when calling `add_credentials_osx`")  # noqa: E501
+        # verify the required parameter 'entitlements_file' is set
+        if ('entitlements_file' not in params or
+                params['entitlements_file'] is None):
+            raise ValueError("Missing the required parameter `entitlements_file` when calling `add_credentials_osx`")  # noqa: E501
+        # verify the required parameter 'provider_name' is set
+        if ('provider_name' not in params or
+                params['provider_name'] is None):
+            raise ValueError("Missing the required parameter `provider_name` when calling `add_credentials_osx`")  # noqa: E501
+        # verify the required parameter 'apple_id_username' is set
+        if ('apple_id_username' not in params or
+                params['apple_id_username'] is None):
+            raise ValueError("Missing the required parameter `apple_id_username` when calling `add_credentials_osx`")  # noqa: E501
+        # verify the required parameter 'apple_id_password' is set
+        if ('apple_id_password' not in params or
+                params['apple_id_password'] is None):
+            raise ValueError("Missing the required parameter `apple_id_password` when calling `add_credentials_osx`")  # noqa: E501
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `add_credentials_osx`")  # noqa: E501
+        # verify the required parameter 'projectid' is set
+        if ('projectid' not in params or
+                params['projectid'] is None):
+            raise ValueError("Missing the required parameter `projectid` when calling `add_credentials_osx`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'orgid' in params:
+            path_params['orgid'] = params['orgid']  # noqa: E501
+        if 'projectid' in params:
+            path_params['projectid'] = params['projectid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'label' in params:
+            form_params.append(('label', params['label']))  # noqa: E501
+        if 'certificate' in params:
+            local_var_files['certificate'] = params['certificate']  # noqa: E501
+        if 'certificate_pass' in params:
+            form_params.append(('certificatePass', params['certificate_pass']))  # noqa: E501
+        if 'entitlements_file' in params:
+            local_var_files['entitlementsFile'] = params['entitlements_file']  # noqa: E501
+        if 'provider_name' in params:
+            form_params.append(('providerName', params['provider_name']))  # noqa: E501
+        if 'apple_id_username' in params:
+            form_params.append(('appleIdUsername', params['apple_id_username']))  # noqa: E501
+        if 'apple_id_password' in params:
+            form_params.append(('appleIdPassword', params['apple_id_password']))  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'permissions']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{orgid}/projects/{projectid}/credentials/signing/osx', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def add_credentials_osx_for_org(self, label, certificate, certificate_pass, entitlements_file, provider_name, apple_id_username, apple_id_password, orgid, **kwargs):  # noqa: E501
+        """Upload OSX Credentials for organization  # noqa: E501
+
+        Upload a new OSX certificate and provisioning profile for the organization. NOTE: you must be a manager in the organization to add new credentials.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_credentials_osx_for_org(label, certificate, certificate_pass, entitlements_file, provider_name, apple_id_username, apple_id_password, orgid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str label: (required)
+        :param str certificate: (required)
+        :param str certificate_pass: (required)
+        :param str entitlements_file: (required)
+        :param str provider_name: (required)
+        :param str apple_id_username: (required)
+        :param str apple_id_password: (required)
+        :param str orgid: Organization identifier (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.add_credentials_osx_for_org_with_http_info(label, certificate, certificate_pass, entitlements_file, provider_name, apple_id_username, apple_id_password, orgid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.add_credentials_osx_for_org_with_http_info(label, certificate, certificate_pass, entitlements_file, provider_name, apple_id_username, apple_id_password, orgid, **kwargs)  # noqa: E501
+            return data
+
+    def add_credentials_osx_for_org_with_http_info(self, label, certificate, certificate_pass, entitlements_file, provider_name, apple_id_username, apple_id_password, orgid, **kwargs):  # noqa: E501
+        """Upload OSX Credentials for organization  # noqa: E501
+
+        Upload a new OSX certificate and provisioning profile for the organization. NOTE: you must be a manager in the organization to add new credentials.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_credentials_osx_for_org_with_http_info(label, certificate, certificate_pass, entitlements_file, provider_name, apple_id_username, apple_id_password, orgid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str label: (required)
+        :param str certificate: (required)
+        :param str certificate_pass: (required)
+        :param str entitlements_file: (required)
+        :param str provider_name: (required)
+        :param str apple_id_username: (required)
+        :param str apple_id_password: (required)
+        :param str orgid: Organization identifier (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['label', 'certificate', 'certificate_pass', 'entitlements_file', 'provider_name', 'apple_id_username', 'apple_id_password', 'orgid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_credentials_osx_for_org" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'label' is set
+        if ('label' not in params or
+                params['label'] is None):
+            raise ValueError("Missing the required parameter `label` when calling `add_credentials_osx_for_org`")  # noqa: E501
+        # verify the required parameter 'certificate' is set
+        if ('certificate' not in params or
+                params['certificate'] is None):
+            raise ValueError("Missing the required parameter `certificate` when calling `add_credentials_osx_for_org`")  # noqa: E501
+        # verify the required parameter 'certificate_pass' is set
+        if ('certificate_pass' not in params or
+                params['certificate_pass'] is None):
+            raise ValueError("Missing the required parameter `certificate_pass` when calling `add_credentials_osx_for_org`")  # noqa: E501
+        # verify the required parameter 'entitlements_file' is set
+        if ('entitlements_file' not in params or
+                params['entitlements_file'] is None):
+            raise ValueError("Missing the required parameter `entitlements_file` when calling `add_credentials_osx_for_org`")  # noqa: E501
+        # verify the required parameter 'provider_name' is set
+        if ('provider_name' not in params or
+                params['provider_name'] is None):
+            raise ValueError("Missing the required parameter `provider_name` when calling `add_credentials_osx_for_org`")  # noqa: E501
+        # verify the required parameter 'apple_id_username' is set
+        if ('apple_id_username' not in params or
+                params['apple_id_username'] is None):
+            raise ValueError("Missing the required parameter `apple_id_username` when calling `add_credentials_osx_for_org`")  # noqa: E501
+        # verify the required parameter 'apple_id_password' is set
+        if ('apple_id_password' not in params or
+                params['apple_id_password'] is None):
+            raise ValueError("Missing the required parameter `apple_id_password` when calling `add_credentials_osx_for_org`")  # noqa: E501
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `add_credentials_osx_for_org`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'orgid' in params:
+            path_params['orgid'] = params['orgid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'label' in params:
+            form_params.append(('label', params['label']))  # noqa: E501
+        if 'certificate' in params:
+            local_var_files['certificate'] = params['certificate']  # noqa: E501
+        if 'certificate_pass' in params:
+            form_params.append(('certificatePass', params['certificate_pass']))  # noqa: E501
+        if 'entitlements_file' in params:
+            local_var_files['entitlementsFile'] = params['entitlements_file']  # noqa: E501
+        if 'provider_name' in params:
+            form_params.append(('providerName', params['provider_name']))  # noqa: E501
+        if 'apple_id_username' in params:
+            form_params.append(('appleIdUsername', params['apple_id_username']))  # noqa: E501
+        if 'apple_id_password' in params:
+            form_params.append(('appleIdPassword', params['apple_id_password']))  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'permissions']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{orgid}/credentials/signing/osx', 'POST',
             path_params,
             query_params,
             header_params,
@@ -673,10 +998,6 @@ class CredentialsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -779,10 +1100,6 @@ class CredentialsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
@@ -895,10 +1212,6 @@ class CredentialsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -1002,15 +1315,225 @@ class CredentialsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{orgid}/credentials/signing/ios/{credentialid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_osx(self, orgid, projectid, credentialid, **kwargs):  # noqa: E501
+        """Delete OSX Credentials  # noqa: E501
+
+        Delete specific OSX credentials for a project. NOTE: you must be a manager in the project's organization to delete credentials.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_osx(orgid, projectid, credentialid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str projectid: Project identifier (required)
+        :param str credentialid: Credential Identifier (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_osx_with_http_info(orgid, projectid, credentialid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_osx_with_http_info(orgid, projectid, credentialid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_osx_with_http_info(self, orgid, projectid, credentialid, **kwargs):  # noqa: E501
+        """Delete OSX Credentials  # noqa: E501
+
+        Delete specific OSX credentials for a project. NOTE: you must be a manager in the project's organization to delete credentials.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_osx_with_http_info(orgid, projectid, credentialid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str projectid: Project identifier (required)
+        :param str credentialid: Credential Identifier (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['orgid', 'projectid', 'credentialid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_osx" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `delete_osx`")  # noqa: E501
+        # verify the required parameter 'projectid' is set
+        if ('projectid' not in params or
+                params['projectid'] is None):
+            raise ValueError("Missing the required parameter `projectid` when calling `delete_osx`")  # noqa: E501
+        # verify the required parameter 'credentialid' is set
+        if ('credentialid' not in params or
+                params['credentialid'] is None):
+            raise ValueError("Missing the required parameter `credentialid` when calling `delete_osx`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'orgid' in params:
+            path_params['orgid'] = params['orgid']  # noqa: E501
+        if 'projectid' in params:
+            path_params['projectid'] = params['projectid']  # noqa: E501
+        if 'credentialid' in params:
+            path_params['credentialid'] = params['credentialid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'permissions']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{orgid}/projects/{projectid}/credentials/signing/osx/{credentialid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_osx_for_org(self, orgid, credentialid, **kwargs):  # noqa: E501
+        """Delete OSX Credentials for organization  # noqa: E501
+
+        Delete specific OSX credentials. NOTE: you must be a manager in the project's organization to delete credentials.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_osx_for_org(orgid, credentialid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str credentialid: Credential Identifier (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_osx_for_org_with_http_info(orgid, credentialid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_osx_for_org_with_http_info(orgid, credentialid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_osx_for_org_with_http_info(self, orgid, credentialid, **kwargs):  # noqa: E501
+        """Delete OSX Credentials for organization  # noqa: E501
+
+        Delete specific OSX credentials. NOTE: you must be a manager in the project's organization to delete credentials.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_osx_for_org_with_http_info(orgid, credentialid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str credentialid: Credential Identifier (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['orgid', 'credentialid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_osx_for_org" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `delete_osx_for_org`")  # noqa: E501
+        # verify the required parameter 'credentialid' is set
+        if ('credentialid' not in params or
+                params['credentialid'] is None):
+            raise ValueError("Missing the required parameter `credentialid` when calling `delete_osx_for_org`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'orgid' in params:
+            path_params['orgid'] = params['orgid']  # noqa: E501
+        if 'credentialid' in params:
+            path_params['credentialid'] = params['credentialid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'permissions']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{orgid}/credentials/signing/osx/{credentialid}', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -1109,10 +1632,6 @@ class CredentialsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -1207,10 +1726,6 @@ class CredentialsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
@@ -1315,10 +1830,6 @@ class CredentialsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -1414,10 +1925,6 @@ class CredentialsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -1430,6 +1937,204 @@ class CredentialsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='list[InlineResponse2009]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_all_osx(self, orgid, projectid, **kwargs):  # noqa: E501
+        """Get All OSX Credentials  # noqa: E501
+
+        Get all credentials available for the project. A user in the projects org will see all credentials uploaded for any project within the org, whereas a user with project-level permissions will only see credentials assigned to the specific project.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_osx(orgid, projectid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str projectid: Project identifier (required)
+        :return: list[InlineResponse20010]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_all_osx_with_http_info(orgid, projectid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_all_osx_with_http_info(orgid, projectid, **kwargs)  # noqa: E501
+            return data
+
+    def get_all_osx_with_http_info(self, orgid, projectid, **kwargs):  # noqa: E501
+        """Get All OSX Credentials  # noqa: E501
+
+        Get all credentials available for the project. A user in the projects org will see all credentials uploaded for any project within the org, whereas a user with project-level permissions will only see credentials assigned to the specific project.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_osx_with_http_info(orgid, projectid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str projectid: Project identifier (required)
+        :return: list[InlineResponse20010]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['orgid', 'projectid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_all_osx" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `get_all_osx`")  # noqa: E501
+        # verify the required parameter 'projectid' is set
+        if ('projectid' not in params or
+                params['projectid'] is None):
+            raise ValueError("Missing the required parameter `projectid` when calling `get_all_osx`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'orgid' in params:
+            path_params['orgid'] = params['orgid']  # noqa: E501
+        if 'projectid' in params:
+            path_params['projectid'] = params['projectid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'permissions']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{orgid}/projects/{projectid}/credentials/signing/osx', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[InlineResponse20010]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_all_osx_for_org(self, orgid, **kwargs):  # noqa: E501
+        """Get All OSX Credentials for an oganization  # noqa: E501
+
+        Get all credentials available for the project. A user in the projects org will see all credentials uploaded for any project within the org, whereas a user with project-level permissions will only see credentials assigned to the specific project.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_osx_for_org(orgid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :return: list[InlineResponse20010]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_all_osx_for_org_with_http_info(orgid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_all_osx_for_org_with_http_info(orgid, **kwargs)  # noqa: E501
+            return data
+
+    def get_all_osx_for_org_with_http_info(self, orgid, **kwargs):  # noqa: E501
+        """Get All OSX Credentials for an oganization  # noqa: E501
+
+        Get all credentials available for the project. A user in the projects org will see all credentials uploaded for any project within the org, whereas a user with project-level permissions will only see credentials assigned to the specific project.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_osx_for_org_with_http_info(orgid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :return: list[InlineResponse20010]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['orgid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_all_osx_for_org" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `get_all_osx_for_org`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'orgid' in params:
+            path_params['orgid'] = params['orgid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'permissions']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{orgid}/credentials/signing/osx', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[InlineResponse20010]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1528,10 +2233,6 @@ class CredentialsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
@@ -1635,10 +2336,6 @@ class CredentialsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
@@ -1751,10 +2448,6 @@ class CredentialsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
@@ -1858,15 +2551,225 @@ class CredentialsApi(object):
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['apikey', 'permissions']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{orgid}/credentials/signing/ios/{credentialid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_one_osx(self, orgid, projectid, credentialid, **kwargs):  # noqa: E501
+        """Get OSX Credential Details  # noqa: E501
+
+        Get specific OSX credential details  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_one_osx(orgid, projectid, credentialid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str projectid: Project identifier (required)
+        :param str credentialid: Credential Identifier (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_one_osx_with_http_info(orgid, projectid, credentialid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_one_osx_with_http_info(orgid, projectid, credentialid, **kwargs)  # noqa: E501
+            return data
+
+    def get_one_osx_with_http_info(self, orgid, projectid, credentialid, **kwargs):  # noqa: E501
+        """Get OSX Credential Details  # noqa: E501
+
+        Get specific OSX credential details  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_one_osx_with_http_info(orgid, projectid, credentialid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str projectid: Project identifier (required)
+        :param str credentialid: Credential Identifier (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['orgid', 'projectid', 'credentialid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_one_osx" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `get_one_osx`")  # noqa: E501
+        # verify the required parameter 'projectid' is set
+        if ('projectid' not in params or
+                params['projectid'] is None):
+            raise ValueError("Missing the required parameter `projectid` when calling `get_one_osx`")  # noqa: E501
+        # verify the required parameter 'credentialid' is set
+        if ('credentialid' not in params or
+                params['credentialid'] is None):
+            raise ValueError("Missing the required parameter `credentialid` when calling `get_one_osx`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'orgid' in params:
+            path_params['orgid'] = params['orgid']  # noqa: E501
+        if 'projectid' in params:
+            path_params['projectid'] = params['projectid']  # noqa: E501
+        if 'credentialid' in params:
+            path_params['credentialid'] = params['credentialid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'permissions']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{orgid}/projects/{projectid}/credentials/signing/osx/{credentialid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_one_osx_for_org(self, orgid, credentialid, **kwargs):  # noqa: E501
+        """Get OSX Credential Details for organization  # noqa: E501
+
+        Get specific OSX credential details  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_one_osx_for_org(orgid, credentialid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str credentialid: Credential Identifier (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_one_osx_for_org_with_http_info(orgid, credentialid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_one_osx_for_org_with_http_info(orgid, credentialid, **kwargs)  # noqa: E501
+            return data
+
+    def get_one_osx_for_org_with_http_info(self, orgid, credentialid, **kwargs):  # noqa: E501
+        """Get OSX Credential Details for organization  # noqa: E501
+
+        Get specific OSX credential details  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_one_osx_for_org_with_http_info(orgid, credentialid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str credentialid: Credential Identifier (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['orgid', 'credentialid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_one_osx_for_org" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `get_one_osx_for_org`")  # noqa: E501
+        # verify the required parameter 'credentialid' is set
+        if ('credentialid' not in params or
+                params['credentialid'] is None):
+            raise ValueError("Missing the required parameter `credentialid` when calling `get_one_osx_for_org`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'orgid' in params:
+            path_params['orgid'] = params['orgid']  # noqa: E501
+        if 'credentialid' in params:
+            path_params['credentialid'] = params['credentialid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'permissions']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{orgid}/credentials/signing/osx/{credentialid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1894,11 +2797,11 @@ class CredentialsApi(object):
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
         :param str credentialid: Credential Identifier (required)
-        :param str label: Label for the uploaded credential
-        :param file file: Keystore file
-        :param str alias: Keystore alias
-        :param str keypass: Keystore keypass
-        :param str storepass: Keystore storepass
+        :param str label:
+        :param str file:
+        :param str alias:
+        :param str keypass:
+        :param str storepass:
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1923,11 +2826,11 @@ class CredentialsApi(object):
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
         :param str credentialid: Credential Identifier (required)
-        :param str label: Label for the uploaded credential
-        :param file file: Keystore file
-        :param str alias: Keystore alias
-        :param str keypass: Keystore keypass
-        :param str storepass: Keystore storepass
+        :param str label:
+        :param str file:
+        :param str alias:
+        :param str keypass:
+        :param str storepass:
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2028,11 +2931,11 @@ class CredentialsApi(object):
         :param async_req bool
         :param str orgid: Organization identifier (required)
         :param str credentialid: Credential Identifier (required)
-        :param str label: Label for the uploaded credential
-        :param file file: Keystore file
-        :param str alias: Keystore alias
-        :param str keypass: Keystore keypass
-        :param str storepass: Keystore storepass
+        :param str label:
+        :param str file:
+        :param str alias:
+        :param str keypass:
+        :param str storepass:
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2056,11 +2959,11 @@ class CredentialsApi(object):
         :param async_req bool
         :param str orgid: Organization identifier (required)
         :param str credentialid: Credential Identifier (required)
-        :param str label: Label for the uploaded credential
-        :param file file: Keystore file
-        :param str alias: Keystore alias
-        :param str keypass: Keystore keypass
-        :param str storepass: Keystore storepass
+        :param str label:
+        :param str file:
+        :param str alias:
+        :param str keypass:
+        :param str storepass:
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2156,10 +3059,10 @@ class CredentialsApi(object):
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
         :param str credentialid: Credential Identifier (required)
-        :param str label: Label for the updated credentials
-        :param file file_certificate: Certificate file (.p12)
-        :param file file_provisioning_profile: Provisioning Profile (.mobileprovision)
-        :param str certificate_pass: Certificate (.p12) password
+        :param str label:
+        :param str file_certificate:
+        :param str file_provisioning_profile:
+        :param str certificate_pass:
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2184,10 +3087,10 @@ class CredentialsApi(object):
         :param str orgid: Organization identifier (required)
         :param str projectid: Project identifier (required)
         :param str credentialid: Credential Identifier (required)
-        :param str label: Label for the updated credentials
-        :param file file_certificate: Certificate file (.p12)
-        :param file file_provisioning_profile: Provisioning Profile (.mobileprovision)
-        :param str certificate_pass: Certificate (.p12) password
+        :param str label:
+        :param str file_certificate:
+        :param str file_provisioning_profile:
+        :param str certificate_pass:
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2286,10 +3189,10 @@ class CredentialsApi(object):
         :param async_req bool
         :param str orgid: Organization identifier (required)
         :param str credentialid: Credential Identifier (required)
-        :param str label: Label for the updated credentials
-        :param file file_certificate: Certificate file (.p12)
-        :param file file_provisioning_profile: Provisioning Profile (.mobileprovision)
-        :param str certificate_pass: Certificate (.p12) password
+        :param str label:
+        :param str file_certificate:
+        :param str file_provisioning_profile:
+        :param str certificate_pass:
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2313,10 +3216,10 @@ class CredentialsApi(object):
         :param async_req bool
         :param str orgid: Organization identifier (required)
         :param str credentialid: Credential Identifier (required)
-        :param str label: Label for the updated credentials
-        :param file file_certificate: Certificate file (.p12)
-        :param file file_provisioning_profile: Provisioning Profile (.mobileprovision)
-        :param str certificate_pass: Certificate (.p12) password
+        :param str label:
+        :param str file_certificate:
+        :param str file_provisioning_profile:
+        :param str certificate_pass:
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2383,6 +3286,284 @@ class CredentialsApi(object):
 
         return self.api_client.call_api(
             '/orgs/{orgid}/credentials/signing/ios/{credentialid}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_osx(self, orgid, projectid, credentialid, **kwargs):  # noqa: E501
+        """Update OSX Credentials  # noqa: E501
+
+        Update an OSX certificate / provisioning profile for the project. NOTE: you must be a manager in the project's organization to update credentials.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_osx(orgid, projectid, credentialid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str projectid: Project identifier (required)
+        :param str credentialid: Credential Identifier (required)
+        :param str label:
+        :param str certificate:
+        :param str certificate_pass:
+        :param str entitlements_file:
+        :param str provider_name:
+        :param str apple_id_username:
+        :param str apple_id_password:
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_osx_with_http_info(orgid, projectid, credentialid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_osx_with_http_info(orgid, projectid, credentialid, **kwargs)  # noqa: E501
+            return data
+
+    def update_osx_with_http_info(self, orgid, projectid, credentialid, **kwargs):  # noqa: E501
+        """Update OSX Credentials  # noqa: E501
+
+        Update an OSX certificate / provisioning profile for the project. NOTE: you must be a manager in the project's organization to update credentials.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_osx_with_http_info(orgid, projectid, credentialid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str projectid: Project identifier (required)
+        :param str credentialid: Credential Identifier (required)
+        :param str label:
+        :param str certificate:
+        :param str certificate_pass:
+        :param str entitlements_file:
+        :param str provider_name:
+        :param str apple_id_username:
+        :param str apple_id_password:
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['orgid', 'projectid', 'credentialid', 'label', 'certificate', 'certificate_pass', 'entitlements_file', 'provider_name', 'apple_id_username', 'apple_id_password']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_osx" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `update_osx`")  # noqa: E501
+        # verify the required parameter 'projectid' is set
+        if ('projectid' not in params or
+                params['projectid'] is None):
+            raise ValueError("Missing the required parameter `projectid` when calling `update_osx`")  # noqa: E501
+        # verify the required parameter 'credentialid' is set
+        if ('credentialid' not in params or
+                params['credentialid'] is None):
+            raise ValueError("Missing the required parameter `credentialid` when calling `update_osx`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'orgid' in params:
+            path_params['orgid'] = params['orgid']  # noqa: E501
+        if 'projectid' in params:
+            path_params['projectid'] = params['projectid']  # noqa: E501
+        if 'credentialid' in params:
+            path_params['credentialid'] = params['credentialid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'label' in params:
+            form_params.append(('label', params['label']))  # noqa: E501
+        if 'certificate' in params:
+            local_var_files['certificate'] = params['certificate']  # noqa: E501
+        if 'certificate_pass' in params:
+            form_params.append(('certificatePass', params['certificate_pass']))  # noqa: E501
+        if 'entitlements_file' in params:
+            local_var_files['entitlementsFile'] = params['entitlements_file']  # noqa: E501
+        if 'provider_name' in params:
+            form_params.append(('providerName', params['provider_name']))  # noqa: E501
+        if 'apple_id_username' in params:
+            form_params.append(('appleIdUsername', params['apple_id_username']))  # noqa: E501
+        if 'apple_id_password' in params:
+            form_params.append(('appleIdPassword', params['apple_id_password']))  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'permissions']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{orgid}/projects/{projectid}/credentials/signing/osx/{credentialid}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_osx_for_org(self, orgid, credentialid, **kwargs):  # noqa: E501
+        """Update OSX Credentials for organization  # noqa: E501
+
+        Update an OSX certificate / provisioning profile. NOTE: you must be a manager in the project's organization to update credentials.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_osx_for_org(orgid, credentialid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str credentialid: Credential Identifier (required)
+        :param str label:
+        :param str certificate:
+        :param str certificate_pass:
+        :param str entitlements_file:
+        :param str provider_name:
+        :param str apple_id_username:
+        :param str apple_id_password:
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_osx_for_org_with_http_info(orgid, credentialid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_osx_for_org_with_http_info(orgid, credentialid, **kwargs)  # noqa: E501
+            return data
+
+    def update_osx_for_org_with_http_info(self, orgid, credentialid, **kwargs):  # noqa: E501
+        """Update OSX Credentials for organization  # noqa: E501
+
+        Update an OSX certificate / provisioning profile. NOTE: you must be a manager in the project's organization to update credentials.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_osx_for_org_with_http_info(orgid, credentialid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str orgid: Organization identifier (required)
+        :param str credentialid: Credential Identifier (required)
+        :param str label:
+        :param str certificate:
+        :param str certificate_pass:
+        :param str entitlements_file:
+        :param str provider_name:
+        :param str apple_id_username:
+        :param str apple_id_password:
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['orgid', 'credentialid', 'label', 'certificate', 'certificate_pass', 'entitlements_file', 'provider_name', 'apple_id_username', 'apple_id_password']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_osx_for_org" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'orgid' is set
+        if ('orgid' not in params or
+                params['orgid'] is None):
+            raise ValueError("Missing the required parameter `orgid` when calling `update_osx_for_org`")  # noqa: E501
+        # verify the required parameter 'credentialid' is set
+        if ('credentialid' not in params or
+                params['credentialid'] is None):
+            raise ValueError("Missing the required parameter `credentialid` when calling `update_osx_for_org`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'orgid' in params:
+            path_params['orgid'] = params['orgid']  # noqa: E501
+        if 'credentialid' in params:
+            path_params['credentialid'] = params['credentialid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'label' in params:
+            form_params.append(('label', params['label']))  # noqa: E501
+        if 'certificate' in params:
+            local_var_files['certificate'] = params['certificate']  # noqa: E501
+        if 'certificate_pass' in params:
+            form_params.append(('certificatePass', params['certificate_pass']))  # noqa: E501
+        if 'entitlements_file' in params:
+            local_var_files['entitlementsFile'] = params['entitlements_file']  # noqa: E501
+        if 'provider_name' in params:
+            form_params.append(('providerName', params['provider_name']))  # noqa: E501
+        if 'apple_id_username' in params:
+            form_params.append(('appleIdUsername', params['apple_id_username']))  # noqa: E501
+        if 'apple_id_password' in params:
+            form_params.append(('appleIdPassword', params['apple_id_password']))  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/plain', 'text/html', 'text/csv'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'permissions']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{orgid}/credentials/signing/osx/{credentialid}', 'PUT',
             path_params,
             query_params,
             header_params,

@@ -3,10 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pre_export_method** | **str** | The fully-qualified name of a public static method you want us to call before we start the Unity build process. For example: ClassName.NeatMethod or NameSpace.ClassName.NeatMethod. No trailing parenthesis, and it can&#39;t have the same name as your Post-Export method! | [optional] 
-**post_export_method** | **str** | The fully-qualified name of a public static method you want us to call after we finish the Unity build process (but before Xcode). For example: ClassName.CoolMethod or NameSpace.ClassName.CoolMethod. No trailing parenthesis, and it can&#39;t have the same name as your Post-Export method! This method must accept a string parameter, which will receive the path to the exported Unity player (or Xcode project in the case of iOS). | [optional] 
+**pre_export_method** | **str** | The fully-qualified name of a public static method you want us to call before we start the Unity build process. For example: ClassName.NeatMethod or NameSpace.ClassName.NeatMethod. No trailing parenthesis, and it can&#x27;t have the same name as your Post-Export method! | [optional] 
+**post_export_method** | **str** | The fully-qualified name of a public static method you want us to call after we finish the Unity build process (but before Xcode). For example: ClassName.CoolMethod or NameSpace.ClassName.CoolMethod. No trailing parenthesis, and it can&#x27;t have the same name as your Post-Export method! This method must accept a string parameter, which will receive the path to the exported Unity player (or Xcode project in the case of iOS). | [optional] 
 **pre_build_script** | **str** | Relative path to the script that should be run before the build process starts. | [optional] 
 **post_build_script** | **str** | Relative path to the script that should be run after the build process finishes. | [optional] 
+**pre_build_script_fails_build** | **bool** | If this is true, a non-zero exit code on your preBuildScript will cause your build to be marked as Failed | [optional] 
+**post_build_script_fails_build** | **bool** | If this is true, a non-zero exit code on your postBuildScript will cause your build to be marked as Failed | [optional] 
 **scripting_define_symbols** | **str** | Enter the names of the symbols you want to define for iOS. These symbols can then be used as the conditions for #if directives just like the built-in ones. (i.e. #IF MYDEFINE or #IF AMAZON) | [optional] 
 **player_exporter** | [**OrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnityPlayerExporter**](OrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnityPlayerExporter.md) |  | [optional] 
 **player_settings** | [**OrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnityPlayerSettings**](OrgsorgidprojectsprojectidbuildtargetsSettingsAdvancedUnityPlayerSettings.md) |  | [optional] 
@@ -21,5 +23,4 @@ Name | Type | Description | Notes
 **enable_light_bake** | **bool** | Enable lightmap baking (disabled by default since it is very slow and usually unnecessary) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

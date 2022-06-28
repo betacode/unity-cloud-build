@@ -1,6 +1,6 @@
 # unity_cloud_build_api.WebhooksApi
 
-All URIs are relative to *https://localhost/api/v1*
+All URIs are relative to */api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,9 +17,8 @@ Method | HTTP request | Description
 [**update_hook_for_org**](WebhooksApi.md#update_hook_for_org) | **PUT** /orgs/{orgid}/hooks/{id} | Update hook for organization
 [**update_hook_for_project**](WebhooksApi.md#update_hook_for_project) | **PUT** /orgs/{orgid}/projects/{projectid}/hooks/{id} | Update hook for project
 
-
 # **add_hook_for_org**
-> object add_hook_for_org(orgid, options=options)
+> object add_hook_for_org(orgid, body=body)
 
 Add hook for organization
 
@@ -32,7 +31,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -44,11 +42,11 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
-options = unity_cloud_build_api.Options2() # Options2 |  (optional)
+body = unity_cloud_build_api.OrgidHooksBody() # OrgidHooksBody |  (optional)
 
 try:
     # Add hook for organization
-    api_response = api_instance.add_hook_for_org(orgid, options=options)
+    api_response = api_instance.add_hook_for_org(orgid, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling WebhooksApi->add_hook_for_org: %s\n" % e)
@@ -59,7 +57,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orgid** | **str**| Organization identifier | 
- **options** | [**Options2**](Options2.md)|  | [optional] 
+ **body** | [**OrgidHooksBody**](OrgidHooksBody.md)|  | [optional] 
 
 ### Return type
 
@@ -77,7 +75,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_hook_for_project**
-> object add_hook_for_project(orgid, projectid, options=options)
+> object add_hook_for_project(orgid, projectid, body=body)
 
 Add hook for project
 
@@ -90,7 +88,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -103,11 +100,11 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
-options = unity_cloud_build_api.Options4() # Options4 |  (optional)
+body = unity_cloud_build_api.ProjectidHooksBody() # ProjectidHooksBody |  (optional)
 
 try:
     # Add hook for project
-    api_response = api_instance.add_hook_for_project(orgid, projectid, options=options)
+    api_response = api_instance.add_hook_for_project(orgid, projectid, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling WebhooksApi->add_hook_for_project: %s\n" % e)
@@ -119,7 +116,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orgid** | **str**| Organization identifier | 
  **projectid** | **str**| Project identifier | 
- **options** | [**Options4**](Options4.md)|  | [optional] 
+ **body** | [**ProjectidHooksBody**](ProjectidHooksBody.md)|  | [optional] 
 
 ### Return type
 
@@ -148,7 +145,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -187,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -204,7 +200,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -245,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -264,7 +259,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -303,7 +297,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -322,7 +316,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -363,7 +356,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -382,7 +375,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -419,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -438,7 +430,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -477,7 +468,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -496,7 +487,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -535,7 +525,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -554,7 +544,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -595,13 +584,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/plain, text/html, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_hook_for_org**
-> object update_hook_for_org(orgid, id, options=options)
+> object update_hook_for_org(orgid, id, body=body)
 
 Update hook for organization
 
@@ -614,7 +603,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -627,11 +615,11 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient(configuration))
 orgid = 'orgid_example' # str | Organization identifier
 id = 'id_example' # str | Hook record identifier
-options = unity_cloud_build_api.Options3() # Options3 |  (optional)
+body = unity_cloud_build_api.HooksIdBody() # HooksIdBody |  (optional)
 
 try:
     # Update hook for organization
-    api_response = api_instance.update_hook_for_org(orgid, id, options=options)
+    api_response = api_instance.update_hook_for_org(orgid, id, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling WebhooksApi->update_hook_for_org: %s\n" % e)
@@ -643,7 +631,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orgid** | **str**| Organization identifier | 
  **id** | **str**| Hook record identifier | 
- **options** | [**Options3**](Options3.md)|  | [optional] 
+ **body** | [**HooksIdBody**](HooksIdBody.md)|  | [optional] 
 
 ### Return type
 
@@ -661,7 +649,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_hook_for_project**
-> object update_hook_for_project(orgid, projectid, id, options=options)
+> object update_hook_for_project(orgid, projectid, id, body=body)
 
 Update hook for project
 
@@ -674,7 +662,6 @@ import time
 import unity_cloud_build_api
 from unity_cloud_build_api.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: apikey
 configuration = unity_cloud_build_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -688,11 +675,11 @@ api_instance = unity_cloud_build_api.WebhooksApi(unity_cloud_build_api.ApiClient
 orgid = 'orgid_example' # str | Organization identifier
 projectid = 'projectid_example' # str | Project identifier
 id = 'id_example' # str | Hook record identifier
-options = unity_cloud_build_api.Options5() # Options5 |  (optional)
+body = unity_cloud_build_api.HooksIdBody1() # HooksIdBody1 |  (optional)
 
 try:
     # Update hook for project
-    api_response = api_instance.update_hook_for_project(orgid, projectid, id, options=options)
+    api_response = api_instance.update_hook_for_project(orgid, projectid, id, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling WebhooksApi->update_hook_for_project: %s\n" % e)
@@ -705,7 +692,7 @@ Name | Type | Description  | Notes
  **orgid** | **str**| Organization identifier | 
  **projectid** | **str**| Project identifier | 
  **id** | **str**| Hook record identifier | 
- **options** | [**Options5**](Options5.md)|  | [optional] 
+ **body** | [**HooksIdBody1**](HooksIdBody1.md)|  | [optional] 
 
 ### Return type
 
