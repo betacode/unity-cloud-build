@@ -12,8 +12,6 @@ Name | Type | Description | Notes
 **platform** | [**OrgsorgidprojectsprojectidbuildtargetsSettingsPlatform**](OrgsorgidprojectsprojectidbuildtargetsSettingsPlatform.md) |  | [optional] 
 **build_schedule** | [**OrgsorgidprojectsprojectidbuildtargetsSettingsBuildSchedule**](OrgsorgidprojectsprojectidbuildtargetsSettingsBuildSchedule.md) |  | [optional] 
 **auto_build_cancellation** | **bool** |  | [optional] [default to False]
-**gcp_beta_opt_in** | **bool** |  | [optional] [default to False]
-**gcp_opt_out** | **bool** |  | [optional] [default to False]
 **operating_system_selected** | **str** |  | [optional] 
 **ruby_version** | **str** |  | [optional] 
 **advanced** | [**OrgsorgidprojectsprojectidbuildtargetsSettingsAdvanced**](OrgsorgidprojectsprojectidbuildtargetsSettingsAdvanced.md) |  | [optional] 

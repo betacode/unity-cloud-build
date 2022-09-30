@@ -378,7 +378,7 @@ class InlineResponse20011(object):
         :param build_status: The build_status of this InlineResponse20011.  # noqa: E501
         :type: str
         """
-        allowed_values = ["queued", "sentToBuilder", "started", "restarted", "success", "failure", "canceled", "unknown"]  # noqa: E501
+        allowed_values = ["created", "queued", "sentToBuilder", "started", "restarted", "success", "failure", "canceled", "unknown"]  # noqa: E501
         if build_status not in allowed_values:
             raise ValueError(
                 "Invalid value for `build_status` ({0}), must be one of {1}"  # noqa: E501

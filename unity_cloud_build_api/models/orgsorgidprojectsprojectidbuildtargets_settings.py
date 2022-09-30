@@ -37,8 +37,6 @@ class OrgsorgidprojectsprojectidbuildtargetsSettings(object):
         'platform': 'OrgsorgidprojectsprojectidbuildtargetsSettingsPlatform',
         'build_schedule': 'OrgsorgidprojectsprojectidbuildtargetsSettingsBuildSchedule',
         'auto_build_cancellation': 'bool',
-        'gcp_beta_opt_in': 'bool',
-        'gcp_opt_out': 'bool',
         'operating_system_selected': 'str',
         'ruby_version': 'str',
         'advanced': 'OrgsorgidprojectsprojectidbuildtargetsSettingsAdvanced'
@@ -54,14 +52,12 @@ class OrgsorgidprojectsprojectidbuildtargetsSettings(object):
         'platform': 'platform',
         'build_schedule': 'buildSchedule',
         'auto_build_cancellation': 'autoBuildCancellation',
-        'gcp_beta_opt_in': 'gcpBetaOptIn',
-        'gcp_opt_out': 'gcpOptOut',
         'operating_system_selected': 'operatingSystemSelected',
         'ruby_version': 'rubyVersion',
         'advanced': 'advanced'
     }
 
-    def __init__(self, auto_build=None, unity_version=None, auto_detect_unity_version=None, fallback_patch_version=None, executablename=None, scm=None, platform=None, build_schedule=None, auto_build_cancellation=False, gcp_beta_opt_in=False, gcp_opt_out=False, operating_system_selected=None, ruby_version=None, advanced=None):  # noqa: E501
+    def __init__(self, auto_build=None, unity_version=None, auto_detect_unity_version=None, fallback_patch_version=None, executablename=None, scm=None, platform=None, build_schedule=None, auto_build_cancellation=False, operating_system_selected=None, ruby_version=None, advanced=None):  # noqa: E501
         """OrgsorgidprojectsprojectidbuildtargetsSettings - a model defined in Swagger"""  # noqa: E501
         self._auto_build = None
         self._unity_version = None
@@ -72,8 +68,6 @@ class OrgsorgidprojectsprojectidbuildtargetsSettings(object):
         self._platform = None
         self._build_schedule = None
         self._auto_build_cancellation = None
-        self._gcp_beta_opt_in = None
-        self._gcp_opt_out = None
         self._operating_system_selected = None
         self._ruby_version = None
         self._advanced = None
@@ -96,10 +90,6 @@ class OrgsorgidprojectsprojectidbuildtargetsSettings(object):
             self.build_schedule = build_schedule
         if auto_build_cancellation is not None:
             self.auto_build_cancellation = auto_build_cancellation
-        if gcp_beta_opt_in is not None:
-            self.gcp_beta_opt_in = gcp_beta_opt_in
-        if gcp_opt_out is not None:
-            self.gcp_opt_out = gcp_opt_out
         if operating_system_selected is not None:
             self.operating_system_selected = operating_system_selected
         if ruby_version is not None:
@@ -303,48 +293,6 @@ class OrgsorgidprojectsprojectidbuildtargetsSettings(object):
         """
 
         self._auto_build_cancellation = auto_build_cancellation
-
-    @property
-    def gcp_beta_opt_in(self):
-        """Gets the gcp_beta_opt_in of this OrgsorgidprojectsprojectidbuildtargetsSettings.  # noqa: E501
-
-
-        :return: The gcp_beta_opt_in of this OrgsorgidprojectsprojectidbuildtargetsSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._gcp_beta_opt_in
-
-    @gcp_beta_opt_in.setter
-    def gcp_beta_opt_in(self, gcp_beta_opt_in):
-        """Sets the gcp_beta_opt_in of this OrgsorgidprojectsprojectidbuildtargetsSettings.
-
-
-        :param gcp_beta_opt_in: The gcp_beta_opt_in of this OrgsorgidprojectsprojectidbuildtargetsSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._gcp_beta_opt_in = gcp_beta_opt_in
-
-    @property
-    def gcp_opt_out(self):
-        """Gets the gcp_opt_out of this OrgsorgidprojectsprojectidbuildtargetsSettings.  # noqa: E501
-
-
-        :return: The gcp_opt_out of this OrgsorgidprojectsprojectidbuildtargetsSettings.  # noqa: E501
-        :rtype: bool
-        """
-        return self._gcp_opt_out
-
-    @gcp_opt_out.setter
-    def gcp_opt_out(self, gcp_opt_out):
-        """Sets the gcp_opt_out of this OrgsorgidprojectsprojectidbuildtargetsSettings.
-
-
-        :param gcp_opt_out: The gcp_opt_out of this OrgsorgidprojectsprojectidbuildtargetsSettings.  # noqa: E501
-        :type: bool
-        """
-
-        self._gcp_opt_out = gcp_opt_out
 
     @property
     def operating_system_selected(self):
